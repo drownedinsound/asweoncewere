@@ -1336,10 +1336,22 @@
         </a></p>`;
     }
 
+    const CACHE_KEY = 'anchoress_essays';
+    const CACHE_TTL = 6 * 60 * 60 * 1000; // 6 hours
+
+    try {
+      const cached = JSON.parse(localStorage.getItem(CACHE_KEY));
+      if (cached && (Date.now() - cached.ts < CACHE_TTL)) {
+        renderCards(cached.items);
+        return;
+      }
+    } catch (e) {}
+
     fetch(FEED)
       .then(r => r.json())
       .then(data => {
         if (data.status !== 'ok' || !data.items?.length) { renderError(); return; }
+        try { localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), items: data.items })); } catch (e) {}
         renderCards(data.items);
       })
       .catch(renderError);
