@@ -137,12 +137,15 @@
   <section class="grid lg:grid-cols-2 min-h-screen">
 
     <!-- Mobile: image on top -->
-    <div class="lg:hidden relative w-full" style="height: 60vw; max-height: 420px;">
-      <img
-        class="w-full h-full object-cover object-[35%]"
-        src="./hero.jpg"
-        alt="The Anchoress (Catherine Anne Davies) — photo by Talie Rose Eigeland"
-      />
+    <div class="lg:hidden w-full overflow-hidden" style="height: 60vw; max-height: 420px;">
+      <picture>
+        <source media="(min-width: 1024px)" srcset="./hero-desktop.jpg"/>
+        <img
+          src="./hero-mobile.jpg"
+          class="w-full h-full object-cover object-center"
+          alt="The Anchoress (Catherine Anne Davies) — photo by Talie Rose Eigeland"
+        />
+      </picture>
     </div>
 
     <!-- Left panel: text (mobile bottom, desktop left) -->
@@ -166,12 +169,15 @@
     </div>
 
     <!-- Right panel: image only, desktop -->
-    <div class="hidden lg:block relative">
-      <img
-        class="w-full h-full object-cover object-[35%]"
-        src="./hero.jpg"
-        alt="The Anchoress (Catherine Anne Davies) — photo by Talie Rose Eigeland"
-      />
+    <div class="hidden lg:block relative overflow-hidden">
+      <picture>
+        <source media="(min-width: 1024px)" srcset="./hero-desktop.jpg"/>
+        <img
+          src="./hero-mobile.jpg"
+          class="w-full h-full object-cover object-center"
+          alt="The Anchoress (Catherine Anne Davies) — photo by Talie Rose Eigeland"
+        />
+      </picture>
       <p class="absolute bottom-4 right-4 z-10 text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.4);">Photo: Talie Rose Eigeland</p>
     </div>
 
