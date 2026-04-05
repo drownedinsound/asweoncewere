@@ -3,19 +3,44 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>The Anchoress — As We Once Were</title>
-<meta name="description" content="The third studio album from The Anchoress. Out August 7th, 2026 on Last Night From Glasgow."/>
+<title>As We Once Were — The Anchoress | New Album 2026</title>
+<meta name="description" content="The third studio album from Welsh artist and producer The Anchoress (Catherine Anne Davies). Featuring Gwenno and James Dean Bradfield. Out August 7th, 2026 on Last Night From Glasgow."/>
+<link rel="canonical" href="https://asweoncewere.com/"/>
 <link rel="icon" href="./Anchoress Logo.png"/>
 <!-- Open Graph -->
-<meta property="og:title" content="The Anchoress — As We Once Were"/>
-<meta property="og:description" content="The third studio album. Fourteen songs about time, memory, and who we used to be. Out August 7th, 2026."/>
+<meta property="og:title" content="As We Once Were — The Anchoress | New Album 2026"/>
+<meta property="og:description" content="The third studio album from Welsh artist and producer The Anchoress (Catherine Anne Davies). Featuring Gwenno and James Dean Bradfield. Out August 7th, 2026."/>
 <meta property="og:image" content="https://asweoncewere.com/og-image.jpg"/>
 <meta property="og:url" content="https://asweoncewere.com/"/>
-<meta property="og:type" content="website"/>
+<meta property="og:type" content="music.album"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="The Anchoress — As We Once Were"/>
-<meta name="twitter:description" content="The third studio album. Out August 7th, 2026."/>
+<meta name="twitter:site" content="@The_Anchoress"/>
+<meta name="twitter:title" content="As We Once Were — The Anchoress | New Album 2026"/>
+<meta name="twitter:description" content="The third studio album from Welsh artist and producer The Anchoress. Featuring Gwenno and James Dean Bradfield. Out August 7th, 2026."/>
 <meta name="twitter:image" content="https://asweoncewere.com/og-image.jpg"/>
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicAlbum",
+  "name": "As We Once Were",
+  "byArtist": {
+    "@type": "MusicGroup",
+    "name": "The Anchoress",
+    "alternateName": "Catherine Anne Davies",
+    "url": "https://www.theanchoress.co.uk/"
+  },
+  "datePublished": "2026-08-07",
+  "numTracks": 14,
+  "recordLabel": {
+    "@type": "Organization",
+    "name": "Last Night From Glasgow"
+  },
+  "description": "The third studio album from twice Welsh Music Prize nominated artist and producer The Anchoress (Catherine Anne Davies). Fourteen songs about time, memory, and who we used to be.",
+  "url": "https://asweoncewere.com/",
+  "image": "https://asweoncewere.com/og-image.jpg"
+}
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300..800;1,300..800&family=Cinzel:wght@400..900&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -134,27 +159,24 @@
   </div>
 
   <!-- ===================== HERO ===================== -->
-  <section class="grid gap-0 lg:grid-cols-2 min-h-screen">
+  <section class="relative lg:grid lg:grid-cols-2 lg:min-h-screen">
 
-    <!-- Mobile: image on top -->
-    <div class="lg:hidden w-full overflow-hidden" style="height: 75vw; min-height: 320px; max-height: 480px;">
-      <picture class="block">
-        <source media="(min-width: 1024px)" srcset="./hero-desktop.jpg"/>
-        <img
-          src="./hero-mobile.jpg"
-          class="w-full h-full object-cover object-top"
-          style="display: block;"
-          alt="The Anchoress (Catherine Anne Davies) — photo by Talie Rose Eigeland"
-        />
-      </picture>
+    <!-- Mobile background: full-bleed image + gradient overlay (hidden on desktop) -->
+    <div class="absolute inset-0 lg:hidden z-0">
+      <img
+        src="./hero-mobile.jpg"
+        class="w-full h-full object-cover object-top"
+        alt="The Anchoress (Catherine Anne Davies) — photo by Talie Rose Eigeland"
+      />
+      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.0) 100%);"></div>
     </div>
 
-    <!-- Left panel: text (mobile bottom, desktop left) -->
-    <div class="relative bg-on-surface px-6 py-10 pb-28 lg:pb-0 lg:px-12 xl:px-20 flex flex-col justify-center lg:min-h-screen">
+    <!-- Text panel: mobile = overlay (z-10, transparent bg); desktop = dark left column -->
+    <div class="relative z-10 bg-transparent lg:bg-on-surface px-6 py-16 pb-28 lg:pb-0 lg:px-12 xl:px-20 flex flex-col justify-end lg:justify-center min-h-[600px] lg:min-h-screen">
       <div class="space-y-6">
         <div class="space-y-2">
           <p class="font-headline tracking-[0.2em] text-sm uppercase" style="color: #ffffff;">Third Studio Album</p>
-          <h1 class="font-headline text-4xl lg:text-7xl leading-tight tracking-tight uppercase" style="color: #ffffff; text-shadow: 0 1px 4px rgba(0,0,0,0.3);">As We<br/>Once Were</h1>
+          <h1 class="font-headline text-4xl lg:text-7xl leading-tight tracking-tight uppercase" style="color: #ffffff; text-shadow: 0 1px 4px rgba(0,0,0,0.3);">As We<br/>Once<br/>Were</h1>
           <p class="text-lg max-w-sm italic leading-snug" style="color: #f5f5f5; font-size: calc(1.125rem + 2px); text-shadow: 0 1px 3px rgba(0,0,0,0.4);">Fourteen songs about time, memory, and who we used to be.</p>
           <p class="text-sm uppercase tracking-widest font-headline" style="color: #eeeeee;">Out August 7th, 2026</p>
         </div>
@@ -167,25 +189,23 @@
           </a>
         </div>
       </div>
+      <p class="lg:hidden absolute bottom-4 right-4 text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.35);">Photo: Talie Rose Eigeland</p>
     </div>
 
     <!-- Right panel: image only, desktop -->
     <div class="hidden lg:block relative overflow-hidden">
-      <picture>
-        <source media="(min-width: 1024px)" srcset="./hero-desktop.jpg"/>
-        <img
-          src="./hero-mobile.jpg"
-          class="w-full h-full object-cover object-center"
-          alt="The Anchoress (Catherine Anne Davies) — photo by Talie Rose Eigeland"
-        />
-      </picture>
+      <img
+        src="./hero-desktop.jpg"
+        class="w-full h-full object-cover object-center"
+        alt="The Anchoress (Catherine Anne Davies) — photo by Talie Rose Eigeland"
+      />
       <p class="absolute bottom-4 right-4 z-10 text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.4);">Photo: Talie Rose Eigeland</p>
     </div>
 
   </section>
 
   <!-- ===================== LEAD SINGLE BAND ===================== -->
-  <section id="single" class="bg-primary-container text-on-primary py-12 px-6 lg:px-16">
+  <section id="single" class="bg-primary-container text-on-primary pt-12 pb-0 lg:py-12 px-6 lg:px-16">
     <div class="lg:max-w-6xl lg:mx-auto lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
       <div class="flex flex-col gap-6">
         <div class="space-y-1">
@@ -200,9 +220,9 @@
         <a href="https://found.ee/IHadAB" class="inline-block self-start bg-on-primary text-primary font-headline py-4 px-8 tracking-[0.15em] uppercase hover:bg-primary-fixed transition-all">
           Listen Now →
         </a>
-        <!-- Single cover: below button on mobile, hidden on mobile (shown in right col on desktop) -->
+        <!-- Single cover: below button on mobile, hidden on desktop (shown in right col on desktop) -->
         <img
-          class="mt-6 max-w-[160px] mx-auto block lg:hidden"
+          class="mt-4 w-4/5 max-w-sm mx-auto block lg:hidden"
           src="./single-cover-blank.jpg"
           alt="I Had A Baby Not A Lobotomy — Single Cover"
         />
@@ -242,13 +262,14 @@
             <div class="w-12 h-1 bg-primary-container"></div>
           </div>
           <p class="font-body text-base leading-relaxed">
-            The Anchoress is Catherine Anne Davies — Welsh multi-instrumentalist, self-producing artist, and one of the most distinctive voices in British music. She writes, produces, and plays everything herself: piano, guitar, flute, mellotron, synthesisers, and more. Her second album <em>The Art of Losing</em> reached the UK Top 40 and was named one of Elton John's favourite records of the year. She has collaborated with James Dean Bradfield of the Manic Street Preachers, performed at Robert Smith's Meltdown Festival, and been championed by BBC Radio 6 Music, NME, PROG, Sunday Times, Line of Best Fit, and more.
+            The Anchoress is Catherine Anne Davies — Welsh multi-instrumentalist, self-producing artist, and one of the most distinctive voices in British music. She writes, produces, and plays everything herself: piano, guitar, flute, mellotron, synthesisers, and more. Her second album <em>The Art of Losing</em> reached the UK Top 40, earned a Metacritic score of 83, and was named PROG Album of the Year. She has collaborated with James Dean Bradfield of the Manic Street Preachers and been championed by BBC Radio 6 Music, NME, PROG, Sunday Times, Line of Best Fit, and more.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">UK Top 40</span>
-            <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">Elton John's Album of the Year</span>
+            <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">Metacritic 83</span>
+            <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">PROG Album of the Year</span>
             <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">BBC 6 Music</span>
             <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">20,000+ Physical Sales</span>
+            <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">Ivors Academy Senator</span>
           </div>
         </div>
 
@@ -341,6 +362,30 @@
         </span>
         <span class="text-primary-container opacity-50 mx-4">★</span>
       </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"Like Chrissie Hynde and David Bowie on a synth-pop death trip."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— The Telegraph</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"It's hard to argue with a record packing such an emotional punch."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Stuart Maconie, BBC 6 Music</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"Wales's much more explicitly feminist answer to Lana Del Rey."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Ann Powers, NPR</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">Confessions of a Romance Novelist</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
 
       <!-- Set 2 (duplicate for seamless loop) -->
       <span class="inline-flex items-center">
@@ -420,6 +465,30 @@
           <span class="font-body italic text-sm text-surface/80">"A masterpiece."</span>
           <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Pete Paphides</span>
           <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"Like Chrissie Hynde and David Bowie on a synth-pop death trip."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— The Telegraph</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"It's hard to argue with a record packing such an emotional punch."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Stuart Maconie, BBC 6 Music</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"Wales's much more explicitly feminist answer to Lana Del Rey."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Ann Powers, NPR</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">Confessions of a Romance Novelist</span>
         </span>
         <span class="text-primary-container opacity-50 mx-4">★</span>
       </span>
@@ -653,6 +722,7 @@
           <div class="pb-7 space-y-1.5">
             <p class="font-headline text-sm uppercase tracking-tight leading-tight">Duet with Manic Street Preachers</p>
             <p class="font-body text-sm text-on-surface-variant leading-relaxed">'Dylan &amp; Caitlin' on <em>Resistance Is Futile</em> — UK #2 album.</p>
+            <blockquote class="font-body italic text-sm text-on-surface-variant border-l-2 border-primary-container pl-3 mt-2 leading-relaxed">"She's a hugely talented kindred spirit." — Nicky Wire, Manic Street Preachers</blockquote>
           </div>
         </div>
 
@@ -701,7 +771,6 @@
               <span class="border border-outline-variant text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">BBC 6 Music Album of the Day</span>
               <span class="border border-outline-variant text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">MPG Self-Producing Artist nominated</span>
             </div>
-            <blockquote class="font-body italic text-sm text-on-surface-variant border-l-2 border-primary-container pl-3 mt-2 leading-relaxed">"One of my favourite records of the year." — Sir Elton John</blockquote>
           </div>
         </div>
 
@@ -939,7 +1008,7 @@
   </section>
 
   <!-- ===================== NEWSLETTER ===================== -->
-  <section id="newsletter" class="bg-[#1b1c19] text-surface py-20 px-6 lg:px-16">
+  <section id="newsletter" class="bg-[#1b1c19] text-surface py-16 px-6 lg:px-16">
     <div class="lg:max-w-xl lg:mx-auto space-y-12">
 
       <!-- Newsletter -->
@@ -963,20 +1032,14 @@
   <!-- ===================== MORE FROM CATHERINE ===================== -->
   <section class="bg-surface-container py-12 px-6 lg:px-16 border-t border-outline-variant/30">
     <p class="font-headline text-xs tracking-[0.3em] uppercase text-on-surface-variant text-center mb-8">More from Catherine</p>
-    <div class="lg:max-w-6xl lg:mx-auto grid grid-cols-2 lg:grid-cols-5 gap-4">
+    <div class="lg:max-w-6xl lg:mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4">
 
       <a href="https://www.theanchoress.co.uk/" target="_blank"
          class="bg-surface-container-lowest border-b-2 border-primary-container p-6 flex flex-col gap-2 hover:bg-surface-container-high transition-all">
         <span class="font-headline text-[10px] tracking-widest uppercase text-on-surface-variant">Official Site</span>
-        <span class="font-headline text-base uppercase tracking-tight">theanchoress.co.uk</span>
-        <span class="font-body text-xs text-on-surface-variant">Full discography, news and tour dates</span>
-      </a>
-
-      <a href="https://theanchoress.substack.com/" target="_blank"
-         class="bg-surface-container-lowest border-b-2 border-primary-container p-6 flex flex-col gap-2 hover:bg-surface-container-high transition-all">
-        <span class="font-headline text-[10px] tracking-widest uppercase text-on-surface-variant">Newsletter</span>
-        <span class="font-headline text-base uppercase tracking-tight">The Substack</span>
-        <span class="font-body text-xs text-on-surface-variant">Essays, updates and first access — direct from Catherine</span>
+        <span class="font-headline text-base uppercase tracking-tight">The Anchoress</span>
+        <span class="font-body text-xs text-on-surface-variant">Full discography, tour dates, news and more</span>
+        <span class="font-headline text-[10px] tracking-widest uppercase text-primary mt-auto pt-2">theanchoress.co.uk →</span>
       </a>
 
       <a href="https://iamtheanchoress.bandcamp.com/" target="_blank"
