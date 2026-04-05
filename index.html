@@ -134,15 +134,16 @@
   </div>
 
   <!-- ===================== HERO ===================== -->
-  <section class="grid lg:grid-cols-2 min-h-screen">
+  <section class="grid gap-0 lg:grid-cols-2 min-h-screen">
 
     <!-- Mobile: image on top -->
-    <div class="lg:hidden w-full overflow-hidden" style="height: 60vw; max-height: 420px;">
-      <picture>
+    <div class="lg:hidden w-full overflow-hidden" style="height: 75vw; min-height: 320px; max-height: 480px;">
+      <picture class="block">
         <source media="(min-width: 1024px)" srcset="./hero-desktop.jpg"/>
         <img
           src="./hero-mobile.jpg"
-          class="w-full h-full object-cover object-center"
+          class="w-full h-full object-cover object-top"
+          style="display: block;"
           alt="The Anchoress (Catherine Anne Davies) — photo by Talie Rose Eigeland"
         />
       </picture>
