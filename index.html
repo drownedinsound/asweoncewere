@@ -821,7 +821,7 @@
               <span class="font-headline text-xs uppercase tracking-widest text-on-surface-variant">Kscope</span>
             </div>
             <h4 class="font-headline text-2xl uppercase tracking-tight">The Art of Losing</h4>
-            <div class="inline-flex items-center gap-1 bg-on-surface text-primary-container px-2 py-1 font-headline text-xs tracking-widest uppercase">Metacritic 83/100</div>
+            <div class="inline-flex items-center gap-1 bg-primary-container text-on-surface px-2 py-1 font-headline text-xs tracking-widest uppercase">Metacritic 83/100</div>
             <div class="flex flex-wrap gap-2">
               <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">UK Top 40</span>
               <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">PROG Album of the Year</span>
@@ -1089,7 +1089,7 @@
   // ── Latest Essays (Substack RSS) ──────────────────────────────────────
   (function () {
     const container = document.getElementById('essay-cards');
-    const FEED = 'https://api.allorigins.win/get?url=' +
+    const FEED = 'https://api.rss2json.com/v1/api.json?rss_url=' +
       encodeURIComponent('https://theanchoress.substack.com/feed');
 
     function stripHtml(html) {
@@ -1127,16 +1127,8 @@
     fetch(FEED)
       .then(r => r.json())
       .then(data => {
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(data.contents, 'text/xml');
-        const items = Array.from(xml.querySelectorAll('item')).map(el => ({
-          title:       el.querySelector('title')?.textContent || '',
-          pubDate:     el.querySelector('pubDate')?.textContent || '',
-          link:        el.querySelector('link')?.textContent || '',
-          description: el.querySelector('description')?.textContent || '',
-        }));
-        if (items.length) renderCards(items);
-        else renderError();
+        if (data.status !== 'ok' || !data.items?.length) { renderError(); return; }
+        renderCards(data.items);
       })
       .catch(renderError);
   })();
