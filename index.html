@@ -129,10 +129,18 @@
     display: flex;
     width: max-content;
     animation: marquee 40s linear infinite;
+    will-change: transform;
   }
   .marquee-track:hover {
     animation-play-state: paused;
   }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details[open] summary .expand-icon { transform: rotate(180deg); }
 </style>
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
@@ -146,14 +154,14 @@
     <img src="./Anchoress Logo.png" alt="The Anchoress" class="h-7"/>
   </a>
   <div class="flex items-center gap-4">
-    <a href="https://found.ee/IHadAB" class="material-symbols-outlined text-[#a33e00] hover:text-primary-container transition-colors">shopping_bag</a>
+    <a href="https://found.ee/IHadAB" class="material-symbols-outlined text-[#a33e00] hover:text-primary-container transition-colors flex items-center justify-center min-h-[44px] min-w-[44px]">shopping_bag</a>
   </div>
 </nav>
 
 <main class="pt-16">
   <!-- ===================== ANNOUNCEMENT STRIP ===================== -->
   <div class="bg-on-surface text-primary-container py-3 px-6 text-center">
-    <a href="https://found.ee/IHadAB" class="font-headline text-xs tracking-[0.2em] uppercase hover:opacity-70 transition-opacity">
+    <a href="https://found.ee/IHadAB" class="font-headline text-xs tracking-[0.2em] uppercase hover:opacity-70 transition-opacity min-h-[44px] py-3 flex items-center justify-center">
       ★&nbsp; Pre-save &amp; win a signed test pressing &nbsp;→
     </a>
   </div>
@@ -162,14 +170,14 @@
 
   <!-- MOBILE HERO (hidden on desktop) -->
   <div class="lg:hidden bg-on-surface min-h-[60vh] flex flex-col justify-center px-6 pt-8 pb-36">
-    <p class="font-headline text-xs tracking-[0.2em] uppercase text-white/50">Third Studio Album</p>
-    <h1 class="font-headline text-5xl uppercase leading-none tracking-tight text-white mt-3">As We<br/>Once Were</h1>
+    <p class="font-headline text-xs tracking-[0.2em] uppercase text-white/50">The Anchoress — Third Studio Album</p>
+    <h1 class="font-headline text-3xl sm:text-4xl uppercase leading-none tracking-tight text-white mt-3">As We<br/>Once Were</h1>
     <p class="font-body italic text-base text-white/80 max-w-xs leading-snug mt-3">Fourteen songs about time, memory, and who we used to be.</p>
     <p class="font-headline text-xs tracking-widest uppercase text-white/50 mt-1">Out August 7th, 2026</p>
     <a href="https://found.ee/IHadAB" class="w-full block text-center bg-primary-container text-on-primary font-headline py-5 px-8 tracking-[0.15em] uppercase hover:bg-primary transition-all active:scale-[0.98] mt-6">
       Pre-Order Now
     </a>
-    <a href="https://found.ee/IHadAB" class="font-headline text-xs tracking-widest uppercase text-white/40 underline underline-offset-4 text-center block mt-4">
+    <a href="https://found.ee/IHadAB" class="font-headline text-xs tracking-widest uppercase text-white/40 underline underline-offset-4 text-center block mt-4 py-3">
       Listen to Lead Single
     </a>
   </div>
@@ -181,7 +189,7 @@
     <div class="bg-on-surface px-12 xl:px-20 flex flex-col justify-center lg:min-h-screen">
       <div class="space-y-6">
         <div class="space-y-2">
-          <p class="font-headline tracking-[0.2em] text-sm uppercase" style="color: #ffffff;">Third Studio Album</p>
+          <p class="font-headline tracking-[0.2em] text-sm uppercase" style="color: #ffffff;">The Anchoress — Third Studio Album</p>
           <h1 class="font-headline text-7xl leading-tight tracking-tight uppercase" style="color: #ffffff; text-shadow: 0 1px 4px rgba(0,0,0,0.3);">As We<br/>Once<br/>Were</h1>
           <p class="text-lg max-w-sm italic leading-snug" style="color: #f5f5f5; font-size: calc(1.125rem + 2px); text-shadow: 0 1px 3px rgba(0,0,0,0.4);">Fourteen songs about time, memory, and who we used to be.</p>
           <p class="text-sm uppercase tracking-widest font-headline" style="color: #eeeeee;">Out August 7th, 2026</p>
@@ -203,6 +211,8 @@
         src="./hero-desktop.jpg"
         class="w-full h-full object-cover object-center"
         alt="The Anchoress (Catherine Anne Davies) — photo by Talie Rose Eigeland"
+        loading="lazy"
+        decoding="async"
       />
       <p class="absolute bottom-4 right-4 z-10 text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.4);">Photo: Talie Rose Eigeland</p>
     </div>
@@ -216,12 +226,14 @@
       class="block lg:hidden w-full aspect-[3/4] object-cover object-top"
       src="./single-cover-blank.jpg"
       alt="I Had A Baby Not A Lobotomy — Single Cover"
+      loading="lazy"
+      decoding="async"
     />
     <div class="lg:max-w-6xl lg:mx-auto lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center px-6 lg:px-0 pt-6 lg:pt-0">
       <div class="flex flex-col gap-6">
         <div class="space-y-1">
           <p class="font-headline text-xs tracking-[0.3em] uppercase opacity-70">New Single — Out Now</p>
-          <h2 class="font-headline text-2xl lg:text-4xl uppercase tracking-tight leading-tight">I Had A Baby<br/>Not A Lobotomy</h2>
+          <h2 class="font-headline text-2xl lg:text-4xl uppercase tracking-tight leading-tight">I Had A Baby Not A Lobotomy</h2>
           <p class="font-body italic opacity-80">Ft. Gwenno — Premiered on BBC Radio 6 Music with Steve Lamacq</p>
         </div>
         <blockquote class="border-l-2 border-on-primary/40 pl-4">
@@ -237,7 +249,37 @@
           class="w-full max-w-xs mx-auto"
           src="./single-cover-blank.jpg"
           alt="I Had A Baby Not A Lobotomy — Single Cover"
+          loading="lazy"
+          decoding="async"
         />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LISTEN & STREAM ===================== -->
+  <section class="bg-surface-container-low py-12 px-6 lg:px-16">
+    <div class="lg:max-w-6xl lg:mx-auto flex flex-col gap-8">
+      <div class="space-y-1">
+        <h3 class="font-headline text-2xl uppercase tracking-widest">Listen &amp; Stream</h3>
+        <div class="w-12 h-1 bg-primary-container"></div>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-4">
+        <a class="flex flex-col items-center justify-center border border-on-surface/20 py-6 hover:bg-surface-container-highest transition-all" href="https://found.ee/IHadAB">
+          <span class="font-headline text-xs tracking-widest uppercase mb-2">Spotify</span>
+          <span class="material-symbols-outlined text-3xl text-primary">play_circle</span>
+        </a>
+        <a class="flex flex-col items-center justify-center border border-on-surface/20 py-6 hover:bg-surface-container-highest transition-all" href="https://found.ee/IHadAB">
+          <span class="font-headline text-xs tracking-widest uppercase mb-2">Apple Music</span>
+          <span class="material-symbols-outlined text-3xl text-primary">music_note</span>
+        </a>
+        <a class="flex flex-col items-center justify-center border border-on-surface/20 py-6 hover:bg-surface-container-highest transition-all" href="https://found.ee/IHadAB">
+          <span class="font-headline text-xs tracking-widest uppercase mb-2">Bandcamp</span>
+          <span class="material-symbols-outlined text-3xl text-primary">album</span>
+        </a>
+        <a class="flex flex-col items-center justify-center border border-on-surface/20 py-6 hover:bg-surface-container-highest transition-all" href="https://found.ee/IHadAB">
+          <span class="font-headline text-xs tracking-widest uppercase mb-2">All Platforms</span>
+          <span class="material-symbols-outlined text-3xl text-primary">link</span>
+        </a>
       </div>
     </div>
   </section>
@@ -254,6 +296,8 @@
               class="w-full h-full object-cover object-top"
               src="./portrait-studio.jpg"
               alt="Catherine Anne Davies (The Anchoress) — Photo: Sean Adams"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <p class="text-[10px] tracking-widest uppercase opacity-40 mt-2 text-right">Photo: Sean Adams</p>
@@ -276,384 +320,13 @@
             <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">20,000+ Physical Sales</span>
             <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">Ivors Academy Senator</span>
           </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== PRESS MARQUEE ===================== -->
-  <div class="bg-on-surface py-5 overflow-hidden">
-    <div class="marquee-track">
-
-      <!-- Set 1 -->
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"One of my favourite records of the year."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Sir Elton John</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"The inadvertent, beautiful and truthful soundtrack to this moment."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Caitlin Moran</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"Kate Bush's Hounds of Love updated for the 21st century."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— PROG</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">Confessions of a Romance Novelist</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"A brave and inspirational album. What a remarkable artist."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— The Sunday Times</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"Visceral, uncompromising."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— The Sunday Times</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"Cuts latter-day Bowie art rock shapes."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Mojo ★★★★</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"A devastatingly powerful voice."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Mojo ★★★★</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">Confessions of a Romance Novelist</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"A defiant and glorious second album."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Classic Pop ★★★★</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"Shining alt-pop from an artisan of darkness."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Record Collector ★★★★</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"A masterpiece."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Pete Paphides</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"Like Chrissie Hynde and David Bowie on a synth-pop death trip."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— The Telegraph</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"It's hard to argue with a record packing such an emotional punch."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Stuart Maconie, BBC 6 Music</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"Wales's much more explicitly feminist answer to Lana Del Rey."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Ann Powers, NPR</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">Confessions of a Romance Novelist</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-
-      <!-- Set 2 (duplicate for seamless loop) -->
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"One of my favourite records of the year."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Sir Elton John</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"The inadvertent, beautiful and truthful soundtrack to this moment."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Caitlin Moran</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"Kate Bush's Hounds of Love updated for the 21st century."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— PROG</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">Confessions of a Romance Novelist</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"A brave and inspirational album. What a remarkable artist."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— The Sunday Times</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"Visceral, uncompromising."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— The Sunday Times</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"Cuts latter-day Bowie art rock shapes."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Mojo ★★★★</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"A devastatingly powerful voice."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Mojo ★★★★</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">Confessions of a Romance Novelist</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"A defiant and glorious second album."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Classic Pop ★★★★</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"Shining alt-pop from an artisan of darkness."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Record Collector ★★★★</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"A masterpiece."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Pete Paphides</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"Like Chrissie Hynde and David Bowie on a synth-pop death trip."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— The Telegraph</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"It's hard to argue with a record packing such an emotional punch."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Stuart Maconie, BBC 6 Music</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-      <span class="inline-flex items-center">
-        <span class="px-10 inline-flex flex-col">
-          <span class="font-body italic text-sm text-surface/80">"Wales's much more explicitly feminist answer to Lana Del Rey."</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Ann Powers, NPR</span>
-          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">Confessions of a Romance Novelist</span>
-        </span>
-        <span class="text-primary-container opacity-50 mx-4">★</span>
-      </span>
-
-    </div>
-  </div>
-
-  <!-- ===================== ABOUT THE ALBUM ===================== -->
-  <section id="album" class="py-16 px-6 lg:px-16 bg-surface">
-    <div class="lg:max-w-6xl lg:mx-auto lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
-      <div class="mb-8 lg:mb-0">
-        <img
-          class="w-full max-w-sm mx-auto lg:max-w-none lg:mx-0"
-          src="./As We Once Were Album Cover Draft.jpeg"
-          alt="As We Once Were — Album Cover"
-        />
-      </div>
-      <div class="space-y-8">
-        <div class="space-y-1">
-          <h3 class="font-headline text-3xl uppercase tracking-tighter">About the Album</h3>
-          <div class="w-12 h-1 bg-primary-container"></div>
-        </div>
-        <p class="font-body text-base leading-relaxed">
-          <em>As We Once Were</em> is the third studio album from twice Welsh Music Prize nominated artist and producer <strong>The Anchoress</strong> (aka Catherine Anne Davies) — the long-awaited follow-up to her UK Top 40 album <em>The Art Of Losing</em>.
-        </p>
-        <p class="font-body text-base leading-relaxed">
-          Created at Black Lodge Studios with access to Pete Townshend's collection of vintage analogue synthesisers, the album is an epic 14-track, widescreen exploration of the nature of time and transformation. Against the backdrop of the birth of her first child and the discovery of her grandmother's voice on a long-lost cassette tape, Davies asks: <em>What can we build out of the past? Are we destined to be held down by it? Can we ever return to these past versions of ourselves?</em>
-        </p>
-        <!-- Collector's Tray: metadata -->
-        <div class="bg-surface-container-lowest border border-outline-variant/30 p-6 space-y-3">
-          <div class="grid grid-cols-2 gap-y-2 text-sm">
-            <span class="font-headline uppercase tracking-widest text-on-surface-variant text-xs">Release</span>
-            <span class="font-body">August 7th, 2026</span>
-            <span class="font-headline uppercase tracking-widest text-on-surface-variant text-xs">Label</span>
-            <span class="font-body">Last Night From Glasgow</span>
-            <span class="font-headline uppercase tracking-widest text-on-surface-variant text-xs">Tracks</span>
-            <span class="font-body">14</span>
-            <span class="font-headline uppercase tracking-widest text-on-surface-variant text-xs">Runtime</span>
-            <span class="font-body">58 minutes</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== VIDEO ===================== -->
-  <!-- TODO: replace placeholder with <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe> and remove the newsletter CTA inside -->
-  <section class="py-16 px-6 lg:px-16 bg-surface">
-    <div class="lg:max-w-4xl lg:mx-auto space-y-8">
-      <div class="flex justify-between items-end">
-        <h3 class="font-headline text-3xl uppercase tracking-tighter">Official Video</h3>
-        <span class="font-headline text-xs tracking-widest opacity-40 uppercase">Coming Soon</span>
-      </div>
-      <div class="aspect-video bg-on-surface flex flex-col items-center justify-center gap-3 relative overflow-hidden text-center px-6">
-        <div class="w-20 h-20 border border-white/30 flex items-center justify-center shrink-0">
-          <span class="material-symbols-outlined text-white/50 text-5xl">play_arrow</span>
-        </div>
-        <p class="font-headline text-xs tracking-widest uppercase text-white/50">I Had A Baby Not A Lobotomy — Video Coming Soon</p>
-        <a href="https://theanchoress.substack.com/" class="inline-block bg-primary-container text-on-primary font-headline py-3 px-8 tracking-[0.15em] text-xs uppercase hover:bg-primary transition-all">
-          Be First to Know →
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== LISTEN & STREAM ===================== -->
-  <section class="bg-surface-container-low py-12 px-6 lg:px-16">
-    <div class="lg:max-w-6xl lg:mx-auto flex flex-col gap-8">
-      <div class="space-y-1">
-        <h3 class="font-headline text-2xl uppercase tracking-widest">Listen &amp; Stream</h3>
-        <div class="w-12 h-1 bg-primary-container"></div>
-      </div>
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <a class="flex flex-col items-center justify-center border border-on-surface/20 py-6 hover:bg-surface-container-highest transition-all" href="https://found.ee/IHadAB">
-          <span class="font-headline text-xs tracking-widest uppercase mb-2">Spotify</span>
-          <span class="material-symbols-outlined text-3xl text-primary">play_circle</span>
-        </a>
-        <a class="flex flex-col items-center justify-center border border-on-surface/20 py-6 hover:bg-surface-container-highest transition-all" href="https://found.ee/IHadAB">
-          <span class="font-headline text-xs tracking-widest uppercase mb-2">Apple Music</span>
-          <span class="material-symbols-outlined text-3xl text-primary">music_note</span>
-        </a>
-        <a class="flex flex-col items-center justify-center border border-on-surface/20 py-6 hover:bg-surface-container-highest transition-all" href="https://found.ee/IHadAB">
-          <span class="font-headline text-xs tracking-widest uppercase mb-2">Bandcamp</span>
-          <span class="material-symbols-outlined text-3xl text-primary">album</span>
-        </a>
-        <a class="flex flex-col items-center justify-center border border-on-surface/20 py-6 hover:bg-surface-container-highest transition-all" href="https://found.ee/IHadAB">
-          <span class="font-headline text-xs tracking-widest uppercase mb-2">All Platforms</span>
-          <span class="material-symbols-outlined text-3xl text-primary">link</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== THE EDITIONS ===================== -->
-  <section id="editions" class="py-16 px-6 lg:px-16 bg-surface-container-low">
-    <div class="lg:max-w-6xl lg:mx-auto space-y-8">
-      <div class="space-y-1">
-        <h3 class="font-headline text-3xl uppercase tracking-tighter">The Editions</h3>
-        <div class="w-12 h-1 bg-primary-container"></div>
-      </div>
-      <p class="font-body italic text-on-surface-variant text-sm">Prices and pre-order links announced soon. Sign up to be first to know.</p>
-      <div class="space-y-6 lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-6">
-
-        <!-- 2LP -->
-        <div class="bg-surface border-t-4 border-primary-container flex flex-col">
-          <div class="aspect-square overflow-hidden">
-            <img class="w-full h-full object-cover" src="./As We Once Were Album Cover Draft.jpeg" alt="As We Once Were — Gatefold 2LP"/>
-          </div>
-          <div class="p-5 flex flex-col gap-4 flex-1">
-            <div class="space-y-1">
-              <p class="font-headline text-[10px] tracking-[0.3em] uppercase text-on-surface-variant">Vinyl</p>
-              <h4 class="font-headline text-lg uppercase tracking-tight leading-tight">Gatefold 2LP</h4>
-              <p class="font-body text-xs text-on-surface-variant leading-relaxed">Leopard print etched vinyl. Limited edition.</p>
+          <div class="pt-6 border-t border-on-surface/10 space-y-3">
+            <p class="font-headline text-xs tracking-[0.25em] uppercase text-on-surface-variant">Further Reading</p>
+            <div class="flex flex-wrap gap-4">
+              <a href="https://www.nme.com/news/music/anchoress-art-of-losing-interview-listen-manics-bowie-2861941" target="_blank" class="font-body text-sm underline text-on-surface-variant hover:text-primary transition-colors">NME Interview →</a>
+              <a href="http://tquiet.us/Suffering" target="_blank" class="font-body text-sm underline text-on-surface-variant hover:text-primary transition-colors">The Quietus: Trauma &amp; Creativity →</a>
+              <a href="https://open.spotify.com/playlist/0CTMUYaeCFdT6wrg9F1Fjj" target="_blank" class="font-body text-sm underline text-on-surface-variant hover:text-primary transition-colors">Spotify: Production CV →</a>
             </div>
-            <a href="https://theanchoress.substack.com/" class="mt-auto block text-center bg-on-surface text-surface font-headline py-3 text-xs tracking-widest uppercase hover:bg-primary transition-all">Notify Me</a>
-          </div>
-        </div>
-
-        <!-- CD -->
-        <div class="bg-surface border-t-4 border-primary-container flex flex-col">
-          <div class="aspect-square overflow-hidden">
-            <img class="w-full h-full object-cover" src="./As We Once Were Album Cover Draft.jpeg" alt="As We Once Were — Gatefold CD"/>
-          </div>
-          <div class="p-5 flex flex-col gap-4 flex-1">
-            <div class="space-y-1">
-              <p class="font-headline text-[10px] tracking-[0.3em] uppercase text-on-surface-variant">CD</p>
-              <h4 class="font-headline text-lg uppercase tracking-tight leading-tight">Gatefold CD</h4>
-              <p class="font-body text-xs text-on-surface-variant leading-relaxed">14 track gatefold CD.</p>
-            </div>
-            <a href="https://theanchoress.substack.com/" class="mt-auto block text-center bg-on-surface text-surface font-headline py-3 text-xs tracking-widest uppercase hover:bg-primary transition-all">Notify Me</a>
-          </div>
-        </div>
-
-        <!-- Deluxe 2CD -->
-        <div class="bg-surface border-t-4 border-primary-container flex flex-col">
-          <div class="aspect-square overflow-hidden">
-            <img class="w-full h-full object-cover" src="./As We Once Were Album Cover Draft.jpeg" alt="As We Once Were — Deluxe 2CD"/>
-          </div>
-          <div class="p-5 flex flex-col gap-4 flex-1">
-            <div class="space-y-1">
-              <p class="font-headline text-[10px] tracking-[0.3em] uppercase text-on-surface-variant">Deluxe</p>
-              <h4 class="font-headline text-lg uppercase tracking-tight leading-tight">Deluxe 2CD</h4>
-              <p class="font-body text-xs text-on-surface-variant leading-relaxed">Limited edition media book.</p>
-            </div>
-            <a href="https://theanchoress.substack.com/" class="mt-auto block text-center bg-on-surface text-surface font-headline py-3 text-xs tracking-widest uppercase hover:bg-primary transition-all">Notify Me</a>
-          </div>
-        </div>
-
-        <!-- Cassette -->
-        <div class="bg-surface border-t-4 border-primary-container flex flex-col">
-          <div class="aspect-square overflow-hidden">
-            <img class="w-full h-full object-cover" src="./As We Once Were Album Cover Draft.jpeg" alt="As We Once Were — Cassette"/>
-          </div>
-          <div class="p-5 flex flex-col gap-4 flex-1">
-            <div class="space-y-1">
-              <p class="font-headline text-[10px] tracking-[0.3em] uppercase text-on-surface-variant">Cassette</p>
-              <h4 class="font-headline text-lg uppercase tracking-tight leading-tight">Cassette</h4>
-              <p class="font-body text-xs text-on-surface-variant leading-relaxed">Limited edition cassette tape.</p>
-            </div>
-            <a href="https://theanchoress.substack.com/" class="mt-auto block text-center bg-on-surface text-surface font-headline py-3 text-xs tracking-widest uppercase hover:bg-primary transition-all">Notify Me</a>
           </div>
         </div>
 
@@ -661,8 +334,14 @@
     </div>
   </section>
 
-  <!-- ===================== CAREER TIMELINE ===================== -->
-  <section class="bg-surface-container-low py-16 px-6 lg:px-16">
+  <!-- ===================== CAREER TIMELINE & DISCOGRAPHY (collapsible) ===================== -->
+  <div class="bg-surface">
+    <details class="border-t border-on-surface/10">
+      <summary class="py-6 px-6 lg:px-16 font-headline text-xl uppercase tracking-tight cursor-pointer list-none flex justify-between items-center">
+        A Career in Music
+        <span class="material-symbols-outlined expand-icon transition-transform duration-300">expand_more</span>
+      </summary>
+      <section class="bg-surface-container-low py-16 px-6 lg:px-16">
     <div class="lg:max-w-6xl lg:mx-auto space-y-10">
       <div class="space-y-1">
         <h3 class="font-headline text-3xl uppercase tracking-tighter">A Career in Music</h3>
@@ -868,9 +547,13 @@
       </div>
     </div>
   </section>
-
-  <!-- ===================== PREVIOUS ALBUMS ===================== -->
-  <section class="bg-surface-container-low py-16 px-6 lg:px-16">
+    </details>
+    <details class="border-t border-on-surface/10">
+      <summary class="py-6 px-6 lg:px-16 font-headline text-xl uppercase tracking-tight cursor-pointer list-none flex justify-between items-center">
+        The Albums
+        <span class="material-symbols-outlined expand-icon transition-transform duration-300">expand_more</span>
+      </summary>
+      <section class="bg-surface-container-low py-16 px-6 lg:px-16">
     <div class="lg:max-w-6xl lg:mx-auto space-y-8">
       <div class="space-y-1">
         <h3 class="font-headline text-3xl uppercase tracking-tighter">The Albums</h3>
@@ -881,7 +564,7 @@
         <!-- Confessions of a Romance Novelist -->
         <div class="bg-surface-container-lowest border-b-4 border-primary-container">
           <div class="aspect-square overflow-hidden">
-            <img class="w-full h-full object-cover" src="./album-confessions.jpg" alt="Confessions of a Romance Novelist — Album Cover"/>
+            <img class="w-full h-full object-cover" src="./album-confessions.jpg" alt="Confessions of a Romance Novelist — Album Cover" loading="lazy" decoding="async"/>
           </div>
           <div class="p-6 space-y-4">
             <div class="flex justify-between items-baseline">
@@ -906,7 +589,7 @@
         <!-- The Art of Losing -->
         <div class="bg-surface-container-lowest border-b-4 border-primary-container">
           <div class="aspect-square overflow-hidden">
-            <img class="w-full h-full object-cover" src="./album-art-of-losing.jpg" alt="The Art of Losing — Album Cover"/>
+            <img class="w-full h-full object-cover" src="./album-art-of-losing.jpg" alt="The Art of Losing — Album Cover" loading="lazy" decoding="async"/>
           </div>
           <div class="p-6 space-y-4">
             <div class="flex justify-between items-baseline">
@@ -926,6 +609,362 @@
               <cite class="not-italic font-headline text-xs uppercase tracking-widest text-primary block mt-1">— Sir Elton John</cite>
             </blockquote>
             <a href="https://iamtheanchoress.bandcamp.com/" class="block text-center border border-on-surface py-3 font-headline text-xs tracking-widest uppercase hover:bg-on-surface hover:text-surface transition-all">Listen</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+    </details>
+  </div>
+
+  <!-- ===================== PRESS MARQUEE ===================== -->
+  <p class="font-body text-xs text-on-surface-variant italic text-center pb-4 pt-2 bg-surface">Press for previous albums</p>
+  <div class="bg-on-surface py-5 overflow-hidden">
+    <div class="marquee-track">
+
+      <!-- Set 1 -->
+      <a href="https://music.apple.com/us/station/the-anchoress/ra.1581011098" target="_blank" class="inline-flex items-center hover:opacity-80 transition-opacity">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"One of my favourite records of the year."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Sir Elton John</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </a>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"The inadvertent, beautiful and truthful soundtrack to this moment."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Caitlin Moran</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <a href="https://www.loudersound.com/reviews/the-anchoress-the-art-of-losing-review" target="_blank" class="inline-flex items-center hover:opacity-80 transition-opacity">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"Kate Bush's Hounds of Love updated for the 21st century."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— PROG</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">Confessions of a Romance Novelist</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </a>
+      <a href="https://www.thetimes.co.uk" target="_blank" class="inline-flex items-center hover:opacity-80 transition-opacity">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"A brave and inspirational album. What a remarkable artist."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— The Sunday Times</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </a>
+      <a href="https://www.thetimes.co.uk" target="_blank" class="inline-flex items-center hover:opacity-80 transition-opacity">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"Visceral, uncompromising."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— The Sunday Times</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </a>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"Cuts latter-day Bowie art rock shapes."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Mojo ★★★★</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"A devastatingly powerful voice."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Mojo ★★★★</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">Confessions of a Romance Novelist</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"A defiant and glorious second album."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Classic Pop ★★★★</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"Shining alt-pop from an artisan of darkness."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Record Collector ★★★★</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"A masterpiece."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Pete Paphides</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"Like Chrissie Hynde and David Bowie on a synth-pop death trip."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— The Telegraph</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"It's hard to argue with a record packing such an emotional punch."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Stuart Maconie, BBC 6 Music</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"Wales's much more explicitly feminist answer to Lana Del Rey."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Ann Powers, NPR</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">Confessions of a Romance Novelist</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <a href="https://music.apple.com/us/station/the-anchoress/ra.1581011098" target="_blank" class="inline-flex items-center hover:opacity-80 transition-opacity">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"One of my favourite records of the year."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Sir Elton John</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </a>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"The inadvertent, beautiful and truthful soundtrack to this moment."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Caitlin Moran</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <a href="https://www.loudersound.com/reviews/the-anchoress-the-art-of-losing-review" target="_blank" class="inline-flex items-center hover:opacity-80 transition-opacity">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"Kate Bush's Hounds of Love updated for the 21st century."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— PROG</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">Confessions of a Romance Novelist</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </a>
+      <a href="https://www.thetimes.co.uk" target="_blank" class="inline-flex items-center hover:opacity-80 transition-opacity">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"A brave and inspirational album. What a remarkable artist."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— The Sunday Times</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </a>
+      <a href="https://www.thetimes.co.uk" target="_blank" class="inline-flex items-center hover:opacity-80 transition-opacity">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"Visceral, uncompromising."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— The Sunday Times</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </a>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"Cuts latter-day Bowie art rock shapes."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Mojo ★★★★</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"A devastatingly powerful voice."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Mojo ★★★★</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">Confessions of a Romance Novelist</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"A defiant and glorious second album."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Classic Pop ★★★★</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"Shining alt-pop from an artisan of darkness."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Record Collector ★★★★</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"A masterpiece."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Pete Paphides</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"Like Chrissie Hynde and David Bowie on a synth-pop death trip."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— The Telegraph</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"It's hard to argue with a record packing such an emotional punch."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Stuart Maconie, BBC 6 Music</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">The Art of Losing</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+      <span class="inline-flex items-center">
+        <span class="px-10 inline-flex flex-col">
+          <span class="font-body italic text-sm text-surface/80">"Wales's much more explicitly feminist answer to Lana Del Rey."</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-primary-container block mt-1">— Ann Powers, NPR</span>
+          <span class="font-headline text-[10px] tracking-widest uppercase text-surface/40 block">Confessions of a Romance Novelist</span>
+        </span>
+        <span class="text-primary-container opacity-50 mx-4">★</span>
+      </span>
+
+    </div>
+  </div>
+
+  <!-- ===================== ABOUT THE ALBUM ===================== -->
+  <section id="album" class="py-16 px-6 lg:px-16 bg-surface">
+    <div class="lg:max-w-6xl lg:mx-auto lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
+      <div class="mb-8 lg:mb-0">
+        <img
+          class="w-full max-w-sm mx-auto lg:max-w-none lg:mx-0"
+          src="./As We Once Were Album Cover Draft.jpeg"
+          alt="As We Once Were — Album Cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div class="space-y-8">
+        <div class="space-y-1">
+          <h3 class="font-headline text-3xl uppercase tracking-tighter">About the Album</h3>
+          <div class="w-12 h-1 bg-primary-container"></div>
+        </div>
+        <p class="font-body text-base leading-relaxed">
+          <em>As We Once Were</em> is the third studio album from twice Welsh Music Prize nominated artist and producer <strong>The Anchoress</strong> (aka Catherine Anne Davies) — the long-awaited follow-up to her UK Top 40 album <em>The Art Of Losing</em>.
+        </p>
+        <p class="font-body text-base leading-relaxed">
+          Created at Black Lodge Studios with access to Pete Townshend's collection of vintage analogue synthesisers, the album is an epic 14-track, widescreen exploration of the nature of time and transformation. Against the backdrop of the birth of her first child and the discovery of her grandmother's voice on a long-lost cassette tape, Davies asks: <em>What can we build out of the past? Are we destined to be held down by it? Can we ever return to these past versions of ourselves?</em>
+        </p>
+        <!-- Collector's Tray: metadata -->
+        <div class="bg-surface-container-lowest border border-outline-variant/30 p-6 space-y-3">
+          <div class="grid grid-cols-2 gap-y-2 text-sm">
+            <span class="font-headline uppercase tracking-widest text-on-surface-variant text-xs">Release</span>
+            <span class="font-body">August 7th, 2026</span>
+            <span class="font-headline uppercase tracking-widest text-on-surface-variant text-xs">Label</span>
+            <span class="font-body">Last Night From Glasgow</span>
+            <span class="font-headline uppercase tracking-widest text-on-surface-variant text-xs">Tracks</span>
+            <span class="font-body">14</span>
+            <span class="font-headline uppercase tracking-widest text-on-surface-variant text-xs">Runtime</span>
+            <span class="font-body">58 minutes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VIDEO ===================== -->
+  <!-- TODO: replace placeholder with <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe> and remove the newsletter CTA inside -->
+  <section class="py-16 px-6 lg:px-16 bg-surface">
+    <div class="lg:max-w-4xl lg:mx-auto space-y-8">
+      <div class="flex justify-between items-end">
+        <h3 class="font-headline text-3xl uppercase tracking-tighter">Official Video</h3>
+        <span class="font-headline text-xs tracking-widest opacity-40 uppercase">Coming Soon</span>
+      </div>
+      <div class="aspect-video bg-on-surface flex flex-col items-center justify-center gap-3 relative overflow-hidden text-center px-6">
+        <div class="w-20 h-20 border border-white/30 flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-white/50 text-5xl">play_arrow</span>
+        </div>
+        <p class="font-headline text-xs tracking-widest uppercase text-white/50">I Had A Baby Not A Lobotomy — Video Coming Soon</p>
+        <a href="https://theanchoress.substack.com/" class="inline-block bg-primary-container text-on-primary font-headline py-3 px-8 tracking-[0.15em] text-xs uppercase hover:bg-primary transition-all">
+          Be First to Know →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== THE EDITIONS ===================== -->
+  <section id="editions" class="py-16 px-6 lg:px-16 bg-surface-container-low">
+    <div class="lg:max-w-6xl lg:mx-auto space-y-8">
+      <div class="space-y-1">
+        <h3 class="font-headline text-3xl uppercase tracking-tighter">The Editions</h3>
+        <div class="w-12 h-1 bg-primary-container"></div>
+      </div>
+      <p class="font-body italic text-on-surface-variant text-sm">Prices and pre-order links announced soon. Sign up to be first to know.</p>
+      <div class="space-y-6 lg:space-y-0 lg:grid lg:grid-cols-4 gap-2 lg:gap-4">
+
+        <!-- 2LP -->
+        <div class="bg-surface border-t-4 border-primary-container flex flex-col">
+          <div class="aspect-square overflow-hidden">
+            <img class="w-full h-full object-cover" src="./As We Once Were Album Cover Draft.jpeg" alt="As We Once Were — Gatefold 2LP" loading="lazy" decoding="async"/>
+          </div>
+          <div class="p-5 flex flex-col gap-4 flex-1">
+            <div class="space-y-1">
+              <p class="font-headline text-[10px] tracking-[0.3em] uppercase text-on-surface-variant">Vinyl</p>
+              <h4 class="font-headline text-lg uppercase tracking-tight leading-tight">Gatefold 2LP</h4>
+              <p class="font-body text-xs text-on-surface-variant leading-relaxed">Leopard print etched vinyl. Limited edition.</p>
+            </div>
+            <a href="https://theanchoress.substack.com/" class="mt-auto block text-center bg-on-surface text-surface font-headline py-3 text-xs tracking-widest uppercase hover:bg-primary transition-all">Notify Me</a>
+          </div>
+        </div>
+
+        <!-- CD -->
+        <div class="bg-surface border-t-4 border-primary-container flex flex-col">
+          <div class="aspect-square overflow-hidden">
+            <img class="w-full h-full object-cover" src="./As We Once Were Album Cover Draft.jpeg" alt="As We Once Were — Gatefold CD" loading="lazy" decoding="async"/>
+          </div>
+          <div class="p-5 flex flex-col gap-4 flex-1">
+            <div class="space-y-1">
+              <p class="font-headline text-[10px] tracking-[0.3em] uppercase text-on-surface-variant">CD</p>
+              <h4 class="font-headline text-lg uppercase tracking-tight leading-tight">Gatefold CD</h4>
+              <p class="font-body text-xs text-on-surface-variant leading-relaxed">14 track gatefold CD.</p>
+            </div>
+            <a href="https://theanchoress.substack.com/" class="mt-auto block text-center bg-on-surface text-surface font-headline py-3 text-xs tracking-widest uppercase hover:bg-primary transition-all">Notify Me</a>
+          </div>
+        </div>
+
+        <!-- Deluxe 2CD -->
+        <div class="bg-surface border-t-4 border-primary-container flex flex-col">
+          <div class="aspect-square overflow-hidden">
+            <img class="w-full h-full object-cover" src="./As We Once Were Album Cover Draft.jpeg" alt="As We Once Were — Deluxe 2CD" loading="lazy" decoding="async"/>
+          </div>
+          <div class="p-5 flex flex-col gap-4 flex-1">
+            <div class="space-y-1">
+              <p class="font-headline text-[10px] tracking-[0.3em] uppercase text-on-surface-variant">Deluxe</p>
+              <h4 class="font-headline text-lg uppercase tracking-tight leading-tight">Deluxe 2CD</h4>
+              <p class="font-body text-xs text-on-surface-variant leading-relaxed">Limited edition media book.</p>
+            </div>
+            <a href="https://theanchoress.substack.com/" class="mt-auto block text-center bg-on-surface text-surface font-headline py-3 text-xs tracking-widest uppercase hover:bg-primary transition-all">Notify Me</a>
+          </div>
+        </div>
+
+        <!-- Cassette -->
+        <div class="bg-surface border-t-4 border-primary-container flex flex-col">
+          <div class="aspect-square overflow-hidden">
+            <img class="w-full h-full object-cover" src="./As We Once Were Album Cover Draft.jpeg" alt="As We Once Were — Cassette" loading="lazy" decoding="async"/>
+          </div>
+          <div class="p-5 flex flex-col gap-4 flex-1">
+            <div class="space-y-1">
+              <p class="font-headline text-[10px] tracking-[0.3em] uppercase text-on-surface-variant">Cassette</p>
+              <h4 class="font-headline text-lg uppercase tracking-tight leading-tight">Cassette</h4>
+              <p class="font-body text-xs text-on-surface-variant leading-relaxed">Limited edition cassette tape.</p>
+            </div>
+            <a href="https://theanchoress.substack.com/" class="mt-auto block text-center bg-on-surface text-surface font-headline py-3 text-xs tracking-widest uppercase hover:bg-primary transition-all">Notify Me</a>
           </div>
         </div>
 
@@ -991,7 +1030,7 @@
       </div>
 
       <a href="https://theanchoress.substack.com/" target="_blank"
-         class="inline-block mt-8 font-headline text-xs tracking-widest uppercase text-on-surface-variant border-b border-outline-variant pb-0.5 hover:text-primary hover:border-primary transition-all">
+         class="inline-block mt-8 font-headline text-xs tracking-widest uppercase text-on-surface-variant border-b border-outline-variant pb-0.5 hover:text-primary hover:border-primary transition-all py-3 block">
         Read All Essays →
       </a>
     </div>
@@ -1024,8 +1063,25 @@
             Essays on making music independently — the economics, the politics, the creative process, and the things the industry would rather you didn't ask about. Plus first access to new releases and ticket pre-sales. Direct to your inbox. No algorithm decides when you see it.
           </p>
         </div>
-        <a href="https://theanchoress.substack.com/" class="inline-block bg-primary-container text-on-primary font-headline py-5 px-12 tracking-[0.2em] uppercase hover:bg-primary transition-all">
-          Subscribe
+        <iframe src="https://theanchoress.substack.com/embed"
+          width="100%"
+          height="150"
+          style="border:none; background:transparent;"
+          frameborder="0"
+          scrolling="no"
+          class="mb-4">
+        </iframe>
+        <p class="font-body text-xs text-surface/60 text-center">
+          Or <a href="https://theanchoress.substack.com/" target="_blank" class="underline hover:text-primary transition-colors">visit the Substack directly →</a>
+        </p>
+      </div>
+
+      <div class="border-t border-surface/20 pt-8 text-center space-y-3">
+        <p class="font-headline text-xs tracking-[0.25em] uppercase text-surface/60">Support Directly</p>
+        <p class="font-body text-sm opacity-70 max-w-xs mx-auto">Exclusive content, stems, and early access — direct to you, no intermediary.</p>
+        <a href="https://www.patreon.com/cw/TheAnchoress" target="_blank"
+           class="inline-block border border-surface/40 text-surface font-headline py-3 px-8 tracking-[0.15em] text-xs uppercase hover:bg-surface/10 transition-all">
+          Join on Patreon →
         </a>
       </div>
 
@@ -1036,7 +1092,7 @@
   <!-- ===================== MORE FROM CATHERINE ===================== -->
   <section class="bg-surface-container py-12 px-6 lg:px-16 border-t border-outline-variant/30">
     <p class="font-headline text-xs tracking-[0.3em] uppercase text-on-surface-variant text-center mb-8">More from Catherine</p>
-    <div class="lg:max-w-6xl lg:mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="lg:max-w-6xl lg:mx-auto grid grid-cols-2 lg:grid-cols-6 gap-2 lg:gap-4">
 
       <a href="https://www.theanchoress.co.uk/" target="_blank"
          class="bg-surface-container-lowest border-b-2 border-primary-container p-6 flex flex-col gap-2 hover:bg-surface-container-high transition-all">
@@ -1067,6 +1123,20 @@
         <span class="font-body text-xs text-on-surface-variant">Exclusive content and early access. Support Catherine directly.</span>
       </a>
 
+      <a href="https://www.tiktok.com/@theanchoress" target="_blank"
+         class="bg-surface-container-lowest border-b-2 border-primary-container p-6 flex flex-col gap-2 hover:bg-surface-container-high transition-all">
+        <span class="font-headline text-[10px] tracking-widest uppercase text-on-surface-variant">TikTok</span>
+        <span class="font-headline text-base uppercase tracking-tight">@theanchoress</span>
+        <span class="font-body text-xs text-on-surface-variant">Short-form videos and behind the scenes.</span>
+      </a>
+
+      <a href="https://www.theanchoress.co.uk/#press-section" target="_blank"
+         class="bg-surface-container-lowest border-b-2 border-primary-container p-6 flex flex-col gap-2 hover:bg-surface-container-high transition-all">
+        <span class="font-headline text-[10px] tracking-widest uppercase text-on-surface-variant">Press Photos</span>
+        <span class="font-headline text-base uppercase tracking-tight">Photo Gallery</span>
+        <span class="font-body text-xs text-on-surface-variant">Official photography for press and media use.</span>
+      </a>
+
     </div>
   </section>
 
@@ -1075,15 +1145,16 @@
 <!-- ===================== FOOTER ===================== -->
 <footer class="bg-[#1b1c19] text-[#ff6600] w-full flex flex-col items-center gap-8 text-center p-12 pb-28 lg:pb-12 border-t border-white/5">
   <div class="space-y-4 flex flex-col items-center">
-    <img src="./Anchoress Logo.png" alt="The Anchoress" class="h-10 brightness-0 invert opacity-90"/>
+    <img src="./Anchoress Logo.png" alt="The Anchoress" class="h-10 brightness-0 invert opacity-90" loading="lazy" decoding="async"/>
     <div class="flex flex-wrap justify-center gap-6">
-      <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all" href="https://www.theanchoress.co.uk/">Website</a>
-      <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all" href="https://www.instagram.com/theanchoressofficial/">Instagram</a>
-      <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all" href="https://open.spotify.com/artist/2Z4qmyxotDkAbZ0TpXyZyw">Spotify</a>
-      <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all" href="https://found.ee/IHadAB">Apple Music</a>
-      <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all" href="https://iamtheanchoress.bandcamp.com/">Bandcamp</a>
-      <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all" href="https://www.youtube.com/channel/UCprifKdWotavrgXSy_qelEw">YouTube</a>
-      <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all" href="https://www.patreon.com/cw/TheAnchoress">Patreon</a>
+      <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all py-2 px-1" href="https://www.theanchoress.co.uk/">Website</a>
+      <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all py-2 px-1" href="https://www.instagram.com/theanchoressofficial/">Instagram</a>
+      <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all py-2 px-1" href="https://open.spotify.com/artist/2Z4qmyxotDkAbZ0TpXyZyw">Spotify</a>
+      <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all py-2 px-1" href="https://found.ee/IHadAB">Apple Music</a>
+      <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all py-2 px-1" href="https://iamtheanchoress.bandcamp.com/">Bandcamp</a>
+      <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all py-2 px-1" href="https://www.youtube.com/channel/UCprifKdWotavrgXSy_qelEw">YouTube</a>
+      <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all py-2 px-1" href="https://www.patreon.com/cw/TheAnchoress">Patreon</a>
+      <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all py-2 px-1" href="https://www.tiktok.com/@theanchoress">TikTok</a>
     </div>
   </div>
   <p class="font-body text-[10px] tracking-[0.2em] text-[#fbf9f4] opacity-40">© 2026 THE ANCHORESS. ALL RIGHTS RESERVED.</p>
@@ -1140,6 +1211,7 @@
       <a href="https://open.spotify.com/artist/2Z4qmyxotDkAbZ0TpXyZyw" class="font-headline text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">Spotify</a>
       <a href="https://iamtheanchoress.bandcamp.com/" class="font-headline text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">Bandcamp</a>
       <a href="https://www.youtube.com/channel/UCprifKdWotavrgXSy_qelEw" class="font-headline text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">YouTube</a>
+      <a href="https://www.tiktok.com/@theanchoress" class="font-headline text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">TikTok</a>
     </div>
   </div>
 
