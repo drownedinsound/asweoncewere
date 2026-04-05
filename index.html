@@ -134,35 +134,47 @@
   </div>
 
   <!-- ===================== HERO ===================== -->
-  <section class="relative min-h-[795px] lg:min-h-screen flex flex-col justify-end px-6 lg:px-16 pb-24 lg:pb-16 overflow-hidden">
-    <div class="absolute inset-0 z-0">
+  <section class="grid lg:grid-cols-2 min-h-screen">
+
+    <!-- Mobile: image on top -->
+    <div class="lg:hidden relative w-full" style="height: 60vw; max-height: 420px;">
       <img
-        class="w-full h-full object-cover object-top"
+        class="w-full h-full object-cover object-[35%]"
         src="./hero.jpg"
         alt="The Anchoress (Catherine Anne Davies) — photo by Talie Rose Eigeland"
       />
-      <!-- mobile: bottom-to-top; desktop: overridden by the lg:block div below -->
-      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.0) 100%)"></div>
-      <!-- desktop only: left-to-right gradient -->
-      <div class="hidden lg:block absolute inset-0" style="background: linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 65%)"></div>
     </div>
-    <div class="relative z-10 space-y-6 max-w-2xl">
-      <div class="space-y-2">
-        <p class="font-headline tracking-[0.2em] text-sm uppercase" style="color: #ffffff;">Third Studio Album</p>
-        <h1 class="font-headline text-4xl lg:text-7xl leading-tight tracking-tight uppercase" style="color: #ffffff; text-shadow: 0 1px 4px rgba(0,0,0,0.3);">As We<br/>Once Were</h1>
-        <p class="text-lg max-w-sm italic leading-snug" style="color: #f5f5f5; font-size: calc(1.125rem + 2px); text-shadow: 0 1px 3px rgba(0,0,0,0.4);">Fourteen songs about time, memory, and who we used to be.</p>
-        <p class="text-sm uppercase tracking-widest font-headline" style="color: #eeeeee;">Out August 7th, 2026</p>
-      </div>
-      <div class="flex flex-col sm:flex-row gap-3">
-        <a href="https://found.ee/IHadAB" class="w-full sm:w-auto block text-center bg-primary-container text-on-primary font-headline py-5 px-8 tracking-[0.15em] uppercase hover:bg-primary transition-all active:scale-[0.98]">
-          Pre-Order Now
-        </a>
-        <a href="https://found.ee/IHadAB" class="w-full sm:w-auto block text-center font-headline py-5 px-8 tracking-[0.15em] uppercase transition-all active:scale-[0.98]" style="border: 1px solid #ffffff; color: #ffffff;">
-          Listen to Lead Single
-        </a>
+
+    <!-- Left panel: text (mobile bottom, desktop left) -->
+    <div class="relative bg-on-surface px-6 py-10 pb-28 lg:pb-0 lg:px-12 xl:px-20 flex flex-col justify-center lg:min-h-screen">
+      <div class="space-y-6">
+        <div class="space-y-2">
+          <p class="font-headline tracking-[0.2em] text-sm uppercase" style="color: #ffffff;">Third Studio Album</p>
+          <h1 class="font-headline text-4xl lg:text-7xl leading-tight tracking-tight uppercase" style="color: #ffffff; text-shadow: 0 1px 4px rgba(0,0,0,0.3);">As We<br/>Once Were</h1>
+          <p class="text-lg max-w-sm italic leading-snug" style="color: #f5f5f5; font-size: calc(1.125rem + 2px); text-shadow: 0 1px 3px rgba(0,0,0,0.4);">Fourteen songs about time, memory, and who we used to be.</p>
+          <p class="text-sm uppercase tracking-widest font-headline" style="color: #eeeeee;">Out August 7th, 2026</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="https://found.ee/IHadAB" class="w-full sm:w-auto block text-center bg-primary-container text-on-primary font-headline py-5 px-8 tracking-[0.15em] uppercase hover:bg-primary transition-all active:scale-[0.98]">
+            Pre-Order Now
+          </a>
+          <a href="https://found.ee/IHadAB" class="w-full sm:w-auto block text-center font-headline py-5 px-8 tracking-[0.15em] uppercase transition-all active:scale-[0.98]" style="border: 1px solid #ffffff; color: #ffffff;">
+            Listen to Lead Single
+          </a>
+        </div>
       </div>
     </div>
-    <p class="absolute bottom-4 right-4 z-10 text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.4);">Photo: Talie Rose Eigeland</p>
+
+    <!-- Right panel: image only, desktop -->
+    <div class="hidden lg:block relative">
+      <img
+        class="w-full h-full object-cover object-[35%]"
+        src="./hero.jpg"
+        alt="The Anchoress (Catherine Anne Davies) — photo by Talie Rose Eigeland"
+      />
+      <p class="absolute bottom-4 right-4 z-10 text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.4);">Photo: Talie Rose Eigeland</p>
+    </div>
+
   </section>
 
   <!-- ===================== LEAD SINGLE BAND ===================== -->
@@ -201,9 +213,21 @@
   <!-- ===================== ABOUT THE ANCHORESS ===================== -->
   <section id="about" class="py-16 px-6 lg:px-16 bg-surface">
     <div class="lg:max-w-6xl lg:mx-auto">
-      <div class="flex flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
+      <div class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
 
-        <!-- Left: bio -->
+        <!-- Left: portrait -->
+        <div>
+          <div class="aspect-video overflow-hidden">
+            <img
+              class="w-full h-full object-cover object-top"
+              src="./portrait-studio.jpg"
+              alt="Catherine Anne Davies (The Anchoress) — Photo: Sean Adams"
+            />
+          </div>
+          <p class="text-[10px] tracking-widest uppercase opacity-40 mt-2 text-right">Photo: Sean Adams</p>
+        </div>
+
+        <!-- Right: bio -->
         <div class="space-y-6 mt-8 lg:mt-0">
           <div class="space-y-3">
             <p class="font-headline tracking-[0.3em] uppercase text-xs text-on-surface-variant">About The Anchoress</p>
@@ -219,18 +243,6 @@
             <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">BBC 6 Music</span>
             <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">20,000+ Physical Sales</span>
           </div>
-        </div>
-
-        <!-- Right: portrait -->
-        <div>
-          <div class="aspect-video overflow-hidden">
-            <img
-              class="w-full h-full object-cover object-top"
-              src="./portrait-studio.jpg"
-              alt="Catherine Anne Davies (The Anchoress) — Photo: Sean Adams"
-            />
-          </div>
-          <p class="text-[10px] tracking-widest uppercase opacity-40 mt-2 text-right">Photo: Sean Adams</p>
         </div>
 
       </div>
