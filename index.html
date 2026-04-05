@@ -103,7 +103,7 @@
 <!-- ===================== TOP NAV ===================== -->
 <nav class="fixed top-0 w-full flex justify-between items-center px-6 lg:px-16 py-4 backdrop-blur-xl bg-[#fbf9f4]/80 z-50">
   <div class="flex items-center gap-4">
-    <span class="material-symbols-outlined text-[#a33e00]">menu</span>
+    <span class="material-symbols-outlined text-[#a33e00] cursor-pointer" data-burger>menu</span>
   </div>
   <a href="https://www.theanchoress.co.uk/" class="flex items-center hover:opacity-70 transition-opacity">
     <img src="./Anchoress Logo.png" alt="The Anchoress" class="h-7"/>
@@ -123,36 +123,39 @@
   </div>
 
   <!-- ===================== HERO ===================== -->
-  <section class="relative min-h-[795px] lg:min-h-screen flex flex-col justify-end lg:justify-center px-6 lg:px-16 pb-12 lg:pb-0 overflow-hidden">
+  <section class="relative min-h-[795px] lg:min-h-screen flex flex-col justify-end px-6 lg:px-16 pb-24 lg:pb-16 overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img
         class="w-full h-full object-cover object-top"
         src="./hero.jpg"
         alt="The Anchoress (Catherine Anne Davies) — photo by Talie Rose Eigeland"
       />
-      <div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+      <!-- mobile: bottom-to-top; desktop: overridden by the lg:block div below -->
+      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.0) 100%)"></div>
+      <!-- desktop only: left-to-right gradient -->
+      <div class="hidden lg:block absolute inset-0" style="background: linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 65%)"></div>
     </div>
-    <div class="relative z-10 space-y-6 lg:max-w-2xl">
+    <div class="relative z-10 space-y-6 max-w-2xl">
       <div class="space-y-2">
-        <p class="font-headline text-primary-container tracking-[0.2em] text-sm uppercase">Third Studio Album</p>
-        <h1 class="font-headline text-5xl lg:text-7xl leading-tight tracking-tight uppercase">As We<br/>Once Were</h1>
-        <p class="text-lg max-w-sm opacity-90 italic leading-snug">Fourteen songs about time, memory, and who we used to be.</p>
-        <p class="text-sm opacity-60 uppercase tracking-widest font-headline">Out August 7th, 2026</p>
+        <p class="font-headline tracking-[0.2em] text-sm uppercase" style="color: #ffffff;">Third Studio Album</p>
+        <h1 class="font-headline text-4xl lg:text-7xl leading-tight tracking-tight uppercase" style="color: #ffffff; text-shadow: 0 1px 4px rgba(0,0,0,0.3);">As We<br/>Once Were</h1>
+        <p class="text-lg max-w-sm italic leading-snug" style="color: #f5f5f5; font-size: calc(1.125rem + 2px); text-shadow: 0 1px 3px rgba(0,0,0,0.4);">Fourteen songs about time, memory, and who we used to be.</p>
+        <p class="text-sm uppercase tracking-widest font-headline" style="color: #eeeeee;">Out August 7th, 2026</p>
       </div>
       <div class="flex flex-col sm:flex-row gap-3">
-        <a href="https://found.ee/IHadAB" class="block text-center bg-primary-container text-on-primary font-headline py-5 px-8 tracking-[0.15em] uppercase hover:bg-primary transition-all active:scale-[0.98]">
+        <a href="https://found.ee/IHadAB" class="w-full sm:w-auto block text-center bg-primary-container text-on-primary font-headline py-5 px-8 tracking-[0.15em] uppercase hover:bg-primary transition-all active:scale-[0.98]">
           Pre-Order Now
         </a>
-        <a href="https://found.ee/IHadAB" class="block text-center border border-on-surface/40 text-on-surface font-headline py-5 px-8 tracking-[0.15em] uppercase hover:border-on-surface transition-all active:scale-[0.98]">
+        <a href="https://found.ee/IHadAB" class="w-full sm:w-auto block text-center font-headline py-5 px-8 tracking-[0.15em] uppercase transition-all active:scale-[0.98]" style="border: 1px solid #ffffff; color: #ffffff;">
           Listen to Lead Single
         </a>
       </div>
     </div>
-    <p class="absolute bottom-4 right-4 z-10 text-[10px] tracking-widest text-on-surface/40 uppercase">Photo: Talie Rose Eigeland</p>
+    <p class="absolute bottom-4 right-4 z-10 text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.4);">Photo: Talie Rose Eigeland</p>
   </section>
 
   <!-- ===================== LEAD SINGLE BAND ===================== -->
-  <section class="bg-primary-container text-on-primary py-12 px-6 lg:px-16">
+  <section id="single" class="bg-primary-container text-on-primary py-12 px-6 lg:px-16">
     <div class="lg:max-w-6xl lg:mx-auto lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
       <div class="flex flex-col gap-6">
         <div class="space-y-1">
@@ -221,7 +224,7 @@
   </section>
 
   <!-- ===================== ABOUT THE ALBUM ===================== -->
-  <section class="py-16 px-6 lg:px-16 bg-surface">
+  <section id="album" class="py-16 px-6 lg:px-16 bg-surface">
     <div class="lg:max-w-6xl lg:mx-auto lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
       <div class="mb-8 lg:mb-0">
         <img
@@ -241,9 +244,6 @@
         <p class="font-body text-base leading-relaxed">
           Created at Black Lodge Studios with access to Pete Townshend's collection of vintage analogue synthesisers, the album is an epic 14-track, widescreen exploration of the nature of time and transformation. Against the backdrop of the birth of her first child and the discovery of her grandmother's voice on a long-lost cassette tape, Davies asks: <em>What can we build out of the past? Are we destined to be held down by it? Can we ever return to these past versions of ourselves?</em>
         </p>
-        <p class="font-body text-base leading-relaxed">
-          Featuring guest vocals from Mercury Prize nominees <strong>Hannah Peel</strong> and Welsh-Cornish musician <strong>Gwenno</strong>, long-time collaborator <strong>James Dean Bradfield</strong> (Manic Street Preachers), and newcomer <strong>Eaves Wilder</strong> (Secretly Canadian).
-        </p>
         <!-- Collector's Tray: metadata -->
         <div class="bg-surface-container-lowest border border-outline-variant/30 p-6 space-y-3">
           <div class="grid grid-cols-2 gap-y-2 text-sm">
@@ -261,29 +261,8 @@
     </div>
   </section>
 
-  <!-- ===================== ACCLAIM ===================== -->
-  <section class="bg-surface-container-low py-16 px-6 lg:px-16">
-    <div class="lg:max-w-6xl lg:mx-auto space-y-12">
-      <div class="text-center">
-        <h3 class="font-headline text-xs uppercase tracking-[0.3em] opacity-60">Acclaim</h3>
-      </div>
-      <p class="text-center font-headline text-xs tracking-widest uppercase opacity-40 -mt-6">On The Art of Losing (2021)</p>
-      <div class="lg:grid lg:grid-cols-2 lg:gap-16 space-y-16 lg:space-y-0">
-        <blockquote class="text-center space-y-6">
-          <p class="text-2xl font-light italic leading-relaxed">"One of my favourite records of the year."</p>
-          <cite class="not-italic font-headline uppercase tracking-widest text-primary text-sm">— Sir Elton John</cite>
-        </blockquote>
-        <blockquote class="text-center space-y-6">
-          <p class="text-2xl font-light italic leading-relaxed">"The inadvertent, beautiful and truthful soundtrack to this moment."</p>
-          <cite class="not-italic font-headline uppercase tracking-widest text-primary text-sm">— Caitlin Moran</cite>
-        </blockquote>
-      </div>
-      <!-- ADD REVIEW QUOTE FOR AS WE ONCE WERE HERE once album reviews are published -->
-    </div>
-  </section>
-
   <!-- ===================== THE EDITIONS ===================== -->
-  <section class="py-16 px-6 lg:px-16 bg-surface">
+  <section id="editions" class="py-16 px-6 lg:px-16 bg-surface">
     <div class="lg:max-w-6xl lg:mx-auto space-y-8">
       <h3 class="font-headline text-3xl uppercase tracking-tighter text-center">The Editions</h3>
       <p class="font-body italic text-on-surface-variant text-sm">Prices and pre-order links announced soon. Sign up to be notified first.</p>
@@ -341,6 +320,43 @@
     </div>
   </section>
 
+  <!-- ===================== ABOUT THE ANCHORESS ===================== -->
+  <section id="about" class="py-16 px-6 lg:px-16 bg-surface">
+    <div class="lg:max-w-6xl lg:mx-auto">
+      <div class="flex flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
+
+        <!-- Left: bio -->
+        <div class="space-y-6 mt-8 lg:mt-0">
+          <div class="space-y-3">
+            <p class="font-headline tracking-[0.3em] uppercase text-xs text-on-surface-variant">About The Anchoress</p>
+            <h3 class="font-headline text-3xl lg:text-4xl uppercase tracking-tighter">Catherine Anne Davies</h3>
+            <div class="w-12 h-1 bg-primary-container"></div>
+          </div>
+          <p class="font-body text-base leading-relaxed">
+            The Anchoress is Catherine Anne Davies — Welsh multi-instrumentalist, self-producing artist, and one of the most distinctive voices in British music. She writes, produces, and plays everything herself: piano, guitar, flute, mellotron, synthesisers, and more. Her second album <em>The Art of Losing</em> reached the UK Top 40 and was named one of Elton John's favourite records of the year. She has collaborated with James Dean Bradfield of the Manic Street Preachers, performed at Robert Smith's Meltdown Festival, and been championed by BBC Radio 6 Music, NME, PROG, Sunday Times, Line of Best Fit, and more.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">UK Top 40</span>
+            <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">Elton John's Album of the Year</span>
+            <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">BBC 6 Music</span>
+            <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">20,000+ Physical Sales</span>
+          </div>
+        </div>
+
+        <!-- Right: portrait -->
+        <div>
+          <img
+            class="w-full object-cover aspect-square max-w-xs mx-auto lg:mx-0"
+            src="https://images.squarespace-cdn.com/content/v1/57324ed44c2f85206e403e64/d74a51a4-e80f-42b4-9f72-54ae0b77c6da/CATHERINE+ANNE+DAVIES+-+TOWNSHEND+STUDIO+-+CREDIT%3A+SEAN+ADAMS.jpg?format=2500w"
+            alt="Catherine Anne Davies (The Anchoress) — Photo: Sean Adams"
+          />
+          <p class="text-[10px] tracking-widest uppercase opacity-40 mt-2 text-right">Photo: Sean Adams</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== PREVIOUS ALBUMS ===================== -->
   <section class="bg-surface-container-low py-16 px-6 lg:px-16">
     <div class="lg:max-w-6xl lg:mx-auto space-y-8">
@@ -352,32 +368,51 @@
 
         <!-- Confessions of a Romance Novelist -->
         <div class="bg-surface-container-lowest border-b-4 border-primary-container">
-          <!-- TODO: add album cover — replace bg-surface-container div with <img> -->
-          <div class="aspect-[4/3] bg-surface-container flex items-end p-6">
-            <h4 class="font-headline text-2xl uppercase tracking-tight">Confessions of a<br/>Romance Novelist</h4>
+          <div class="aspect-square overflow-hidden">
+            <img class="w-full h-full object-cover" src="https://f4.bcbits.com/img/a1453238321_10.jpg" alt="Confessions of a Romance Novelist — Album Cover"/>
           </div>
           <div class="p-6 space-y-4">
             <div class="flex justify-between items-baseline">
               <span class="font-headline text-xs uppercase tracking-widest text-on-surface-variant">2016</span>
-              <span class="font-headline text-xs uppercase tracking-widest text-on-surface-variant">Last Night From Glasgow</span>
+              <span class="font-headline text-xs uppercase tracking-widest text-on-surface-variant">Kscope</span>
             </div>
-            <p class="text-sm leading-relaxed text-on-surface-variant">Welsh Music Prize nominee. HMV Welsh Album of the Year. Best Newcomer at the PROG Awards.</p>
+            <h4 class="font-headline text-2xl uppercase tracking-tight">Confessions of a Romance Novelist</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">Guardian Critics' Album of the Year</span>
+              <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">HMV Welsh Album of the Year</span>
+              <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">PROG Best Newcomer</span>
+              <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">Welsh Music Prize Nominee</span>
+            </div>
+            <blockquote class="border-l-2 border-primary-container pl-3">
+              <p class="font-body italic text-sm text-on-surface-variant leading-relaxed">"Hounds of Love updated for the 21st century."</p>
+              <cite class="not-italic font-headline text-xs uppercase tracking-widest text-primary block mt-1">— PROG</cite>
+            </blockquote>
             <a href="https://iamtheanchoress.bandcamp.com/" class="block text-center border border-on-surface py-3 font-headline text-xs tracking-widest uppercase hover:bg-on-surface hover:text-surface transition-all">Listen</a>
           </div>
         </div>
 
         <!-- The Art of Losing -->
         <div class="bg-surface-container-lowest border-b-4 border-primary-container">
-          <!-- TODO: add album cover — replace bg-surface-container div with <img> -->
-          <div class="aspect-[4/3] bg-surface-container flex items-end p-6">
-            <h4 class="font-headline text-2xl uppercase tracking-tight">The Art of Losing</h4>
+          <div class="aspect-square overflow-hidden">
+            <img class="w-full h-full object-cover" src="https://f4.bcbits.com/img/a1415026538_10.jpg" alt="The Art of Losing — Album Cover"/>
           </div>
           <div class="p-6 space-y-4">
             <div class="flex justify-between items-baseline">
               <span class="font-headline text-xs uppercase tracking-widest text-on-surface-variant">2021</span>
-              <span class="font-headline text-xs uppercase tracking-widest text-on-surface-variant">Last Night From Glasgow</span>
+              <span class="font-headline text-xs uppercase tracking-widest text-on-surface-variant">Kscope</span>
             </div>
-            <p class="text-sm leading-relaxed text-on-surface-variant">UK Top 40. Welsh Music Prize nominee. "One of my favourite records of the year." — Sir Elton John</p>
+            <h4 class="font-headline text-2xl uppercase tracking-tight">The Art of Losing</h4>
+            <div class="inline-flex items-center gap-1 bg-on-surface text-primary-container px-2 py-1 font-headline text-xs tracking-widest uppercase">Metacritic 83/100</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">UK Top 40</span>
+              <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">PROG Album of the Year</span>
+              <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">BBC 6 Music Album of the Day</span>
+              <span class="border border-outline-variant px-3 py-1 font-headline text-xs tracking-widest uppercase text-on-surface-variant">Welsh Music Prize Nominee</span>
+            </div>
+            <blockquote class="border-l-2 border-primary-container pl-3">
+              <p class="font-body italic text-sm text-on-surface-variant leading-relaxed">"One of my favourite records of the year."</p>
+              <cite class="not-italic font-headline text-xs uppercase tracking-widest text-primary block mt-1">— Sir Elton John</cite>
+            </blockquote>
             <a href="https://iamtheanchoress.bandcamp.com/" class="block text-center border border-on-surface py-3 font-headline text-xs tracking-widest uppercase hover:bg-on-surface hover:text-surface transition-all">Listen</a>
           </div>
         </div>
@@ -386,23 +421,8 @@
     </div>
   </section>
 
-  <!-- ===================== LIVE ===================== -->
-  <section class="bg-primary-container text-on-primary py-12 px-6 lg:px-16">
-    <div class="lg:max-w-6xl lg:mx-auto flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-      <div class="space-y-2">
-        <p class="font-headline text-xs tracking-[0.3em] uppercase opacity-70">On Tour</p>
-        <h3 class="font-headline text-2xl uppercase tracking-widest">Live</h3>
-        <div class="w-12 h-1 bg-on-primary"></div>
-        <p class="font-body italic opacity-80 pt-1">Leeds · Manchester · Liverpool · London · Glasgow · Cardiff &amp; more</p>
-      </div>
-      <a href="https://www.theanchoress.co.uk/live" class="inline-block self-start bg-on-primary text-primary font-headline py-4 px-8 tracking-[0.15em] uppercase hover:bg-primary-fixed transition-all">
-        Dates &amp; Tickets →
-      </a>
-    </div>
-  </section>
-
   <!-- ===================== THE PODCAST ===================== -->
-  <section class="bg-on-surface text-surface py-20 px-6 lg:px-16">
+  <section id="podcast" class="bg-on-surface text-surface py-20 px-6 lg:px-16">
     <div class="lg:max-w-3xl lg:mx-auto text-center space-y-8">
       <div class="space-y-4">
         <p class="font-headline text-xs uppercase tracking-[0.3em] text-primary-container opacity-70">New Podcast — Coming Soon</p>
@@ -418,18 +438,47 @@
   </section>
 
   <!-- ===================== NEWSLETTER ===================== -->
-  <section class="bg-[#1b1c19] text-surface py-20 px-6 lg:px-16 text-center space-y-8">
-    <div class="lg:max-w-xl lg:mx-auto space-y-8">
-      <div class="space-y-4">
-        <h3 class="font-headline text-4xl uppercase tracking-tighter leading-none text-primary-container">The Newsletter</h3>
-        <p class="font-body text-lg opacity-80 max-w-xs mx-auto">
-          First access, essays, and news direct from Catherine. Delivered via Substack.
-        </p>
+  <section id="newsletter" class="bg-[#1b1c19] text-surface py-20 px-6 lg:px-16">
+    <div class="lg:max-w-xl lg:mx-auto space-y-12">
+
+      <!-- Live date -->
+      <div id="live" class="space-y-6">
+        <div class="space-y-1">
+          <p class="font-headline text-xs tracking-[0.3em] uppercase text-primary-container opacity-70">On Sale Now</p>
+          <h3 class="font-headline text-2xl uppercase tracking-widest" style="color:#ffffff;">Live</h3>
+          <div class="w-12 h-1 bg-primary-container"></div>
+        </div>
+        <div class="border-l-2 border-primary-container pl-4 space-y-1">
+          <p class="font-headline text-sm uppercase tracking-widest" style="color:#ffffff;">100 Club, London</p>
+          <p class="font-body italic opacity-70">August 22nd, 2026</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="https://www.theanchoress.co.uk/live" class="w-full sm:w-auto block text-center bg-primary-container text-on-primary font-headline py-4 px-8 tracking-[0.15em] uppercase hover:bg-primary transition-all">
+            Get Tickets →
+          </a>
+          <a href="https://theanchoress.substack.com/" class="w-full sm:w-auto block text-center font-headline py-4 px-8 tracking-[0.15em] uppercase transition-all" style="border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.7);">
+            Sign Up for More Dates
+          </a>
+        </div>
       </div>
-      <a href="https://theanchoress.substack.com/" class="inline-block bg-primary-container text-on-primary font-headline py-5 px-12 tracking-[0.2em] uppercase hover:bg-primary transition-all">
-        Subscribe
-      </a>
-      <p class="text-[10px] tracking-widest opacity-40 uppercase">No algorithms. Just words.</p>
+
+      <!-- Divider -->
+      <div class="border-t border-white/10"></div>
+
+      <!-- Newsletter -->
+      <div class="text-center space-y-6">
+        <div class="space-y-3">
+          <h3 class="font-headline text-4xl uppercase tracking-tighter leading-none text-primary-container">The Newsletter</h3>
+          <p class="font-body text-lg opacity-80 max-w-xs mx-auto">
+            First access, essays, and news direct from Catherine. Delivered via Substack.
+          </p>
+        </div>
+        <a href="https://theanchoress.substack.com/" class="inline-block bg-primary-container text-on-primary font-headline py-5 px-12 tracking-[0.2em] uppercase hover:bg-primary transition-all">
+          Subscribe
+        </a>
+        <p class="text-[10px] tracking-widest opacity-40 uppercase">No algorithms. Just words.</p>
+      </div>
+
     </div>
   </section>
 
@@ -471,6 +520,78 @@
     <span class="font-headline uppercase tracking-widest text-[10px]">Essays</span>
   </a>
 </nav>
+
+<!-- ===================== DRAWER OVERLAY ===================== -->
+<div data-overlay class="hidden fixed inset-0 bg-black/60 z-[99]"></div>
+
+<!-- ===================== SLIDE-IN DRAWER ===================== -->
+<div data-drawer class="fixed top-0 left-0 h-full w-72 bg-surface z-[100] p-8 pt-16 flex flex-col gap-6 -translate-x-full transition-transform duration-300 overflow-y-auto">
+
+  <!-- Close button -->
+  <button data-close class="absolute top-5 right-5 font-headline text-2xl text-on-surface hover:text-primary transition-colors leading-none">×</button>
+
+  <!-- Navigation links -->
+  <div>
+    <p class="font-headline text-xs tracking-[0.3em] uppercase text-on-surface-variant mb-4">Navigate</p>
+    <nav class="flex flex-col">
+      <a href="#single"       class="font-headline uppercase tracking-widest text-sm py-3 border-b border-outline-variant block w-full hover:text-primary transition-colors">New Single</a>
+      <a href="#album"        class="font-headline uppercase tracking-widest text-sm py-3 border-b border-outline-variant block w-full hover:text-primary transition-colors">About the Album</a>
+      <a href="#editions"     class="font-headline uppercase tracking-widest text-sm py-3 border-b border-outline-variant block w-full hover:text-primary transition-colors">Editions</a>
+      <a href="#about"        class="font-headline uppercase tracking-widest text-sm py-3 border-b border-outline-variant block w-full hover:text-primary transition-colors">About the Artist</a>
+      <a href="#live"         class="font-headline uppercase tracking-widest text-sm py-3 border-b border-outline-variant block w-full hover:text-primary transition-colors">Live</a>
+      <a href="#podcast"      class="font-headline uppercase tracking-widest text-sm py-3 border-b border-outline-variant block w-full hover:text-primary transition-colors">Podcast</a>
+      <a href="#newsletter"   class="font-headline uppercase tracking-widest text-sm py-3 border-b border-outline-variant block w-full hover:text-primary transition-colors">Newsletter</a>
+    </nav>
+  </div>
+
+  <!-- Social links -->
+  <div>
+    <p class="font-headline text-xs tracking-[0.3em] uppercase text-on-surface-variant mb-4">Follow</p>
+    <div class="flex flex-wrap gap-4">
+      <a href="https://www.instagram.com/theanchoressofficial/" class="font-headline text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">Instagram</a>
+      <a href="https://open.spotify.com/artist/2Z4qmyxotDkAbZ0TpXyZyw" class="font-headline text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">Spotify</a>
+      <a href="https://iamtheanchoress.bandcamp.com/" class="font-headline text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">Bandcamp</a>
+      <a href="https://www.youtube.com/channel/UCprifKdWotavrgXSy_qelEw" class="font-headline text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">YouTube</a>
+    </div>
+  </div>
+
+  <!-- Pre-order CTA -->
+  <a href="https://found.ee/IHadAB" class="mt-auto block w-full text-center bg-primary-container text-on-primary font-headline py-5 tracking-[0.15em] uppercase hover:bg-primary transition-all">
+    Pre-Order Now →
+  </a>
+
+</div>
+
+<script>
+  const burger  = document.querySelector('[data-burger]');
+  const drawer  = document.querySelector('[data-drawer]');
+  const overlay = document.querySelector('[data-overlay]');
+  const closeBtn = document.querySelector('[data-close]');
+
+  function openDrawer() {
+    drawer.classList.remove('-translate-x-full');
+    drawer.classList.add('translate-x-0');
+    overlay.classList.remove('hidden');
+  }
+
+  function closeDrawer() {
+    drawer.classList.add('-translate-x-full');
+    drawer.classList.remove('translate-x-0');
+    overlay.classList.add('hidden');
+  }
+
+  burger.addEventListener('click', openDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+
+  drawer.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      closeDrawer();
+      document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
 
 </body>
 </html>
