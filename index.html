@@ -118,7 +118,7 @@
   <!-- ===================== ANNOUNCEMENT STRIP ===================== -->
   <div class="bg-on-surface text-primary-container py-3 px-6 text-center">
     <a href="https://found.ee/IHadAB" class="font-headline text-xs tracking-[0.2em] uppercase hover:opacity-70 transition-opacity">
-      ★ &nbsp;Pre-save the new single &amp; win a signed test pressing of the album &nbsp;→
+      ★ &nbsp;Win a signed test pressing — pre-save now &nbsp;→
     </a>
   </div>
 
@@ -167,9 +167,9 @@
           Listen Now →
         </a>
       </div>
-      <div class="hidden lg:block mt-8 lg:mt-0">
+      <div class="mt-8 lg:mt-0">
         <img
-          class="w-full max-w-xs mx-auto"
+          class="w-full max-w-[200px] mx-auto lg:max-w-xs"
           src="./single-cover.jpg"
           alt="I Had A Baby Not A Lobotomy — Single Cover"
         />
@@ -178,19 +178,23 @@
   </section>
 
   <!-- ===================== VIDEO ===================== -->
+  <!-- TODO: replace placeholder with <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe> and remove the newsletter CTA inside -->
   <section class="py-16 px-6 lg:px-16 bg-surface">
     <div class="lg:max-w-4xl lg:mx-auto space-y-8">
       <div class="flex justify-between items-end">
         <h3 class="font-headline text-3xl uppercase tracking-tighter">Official Video</h3>
         <span class="font-headline text-xs tracking-widest opacity-40 uppercase">Coming Soon</span>
       </div>
-      <!-- TODO: replace this placeholder with <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe> -->
-      <div class="aspect-video bg-on-surface flex flex-col items-center justify-center gap-4">
+      <div class="aspect-video bg-on-surface flex flex-col items-center justify-center gap-6 relative overflow-hidden">
         <div class="w-20 h-20 border border-white/30 flex items-center justify-center">
           <span class="material-symbols-outlined text-white/50 text-5xl">play_arrow</span>
         </div>
-        <p class="font-headline text-xs tracking-widest uppercase text-white/40">Video Coming Soon</p>
-        <p class="font-body italic text-white/30 text-sm">I Had A Baby Not A Lobotomy</p>
+        <div class="text-center space-y-4 px-6">
+          <p class="font-headline text-xs tracking-widest uppercase text-white/50">I Had A Baby Not A Lobotomy — Video Coming Soon</p>
+          <a href="https://theanchoress.substack.com/" class="inline-block bg-primary-container text-on-primary font-headline py-3 px-8 tracking-[0.15em] text-xs uppercase hover:bg-primary transition-all">
+            Be First to Know →
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -228,7 +232,7 @@
     <div class="lg:max-w-6xl lg:mx-auto lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
       <div class="mb-8 lg:mb-0">
         <img
-          class="w-full max-w-sm mx-auto lg:mx-0"
+          class="w-full max-w-sm mx-auto lg:max-w-none lg:mx-0"
           src="./As We Once Were Album Cover Draft.jpeg"
           alt="As We Once Were — Album Cover"
         />
@@ -262,58 +266,73 @@
   </section>
 
   <!-- ===================== THE EDITIONS ===================== -->
-  <section id="editions" class="py-16 px-6 lg:px-16 bg-surface">
+  <section id="editions" class="py-16 px-6 lg:px-16 bg-surface-container-low">
     <div class="lg:max-w-6xl lg:mx-auto space-y-8">
-      <h3 class="font-headline text-3xl uppercase tracking-tighter text-center">The Editions</h3>
-      <p class="font-body italic text-on-surface-variant text-sm">Prices and pre-order links announced soon. Sign up to be notified first.</p>
+      <div class="space-y-1">
+        <h3 class="font-headline text-3xl uppercase tracking-tighter">The Editions</h3>
+        <div class="w-12 h-1 bg-primary-container"></div>
+      </div>
+      <p class="font-body italic text-on-surface-variant text-sm">Prices and pre-order links announced soon. Sign up to be first to know.</p>
       <div class="space-y-6 lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-6">
 
         <!-- 2LP -->
-        <div class="bg-surface-container-lowest border-b-4 border-primary-container p-6 flex flex-col gap-6">
-          <div class="aspect-square bg-surface-container overflow-hidden">
+        <div class="bg-surface border-t-4 border-primary-container flex flex-col">
+          <div class="aspect-square overflow-hidden">
             <img class="w-full h-full object-cover" src="./As We Once Were Album Cover Draft.jpeg" alt="As We Once Were — Gatefold 2LP"/>
           </div>
-          <div class="space-y-2">
-            <h4 class="font-headline text-xl uppercase tracking-wide">Gatefold 2LP</h4>
-            <p class="text-sm text-on-surface-variant">Leopard print etched vinyl. Limited edition.</p>
+          <div class="p-5 flex flex-col gap-4 flex-1">
+            <div class="space-y-1">
+              <p class="font-headline text-[10px] tracking-[0.3em] uppercase text-on-surface-variant">Vinyl</p>
+              <h4 class="font-headline text-lg uppercase tracking-tight leading-tight">Gatefold 2LP</h4>
+              <p class="font-body text-xs text-on-surface-variant leading-relaxed">Leopard print etched vinyl. Limited edition.</p>
+            </div>
+            <a href="https://theanchoress.substack.com/" class="mt-auto block text-center bg-on-surface text-surface font-headline py-3 text-xs tracking-widest uppercase hover:bg-primary transition-all">Notify Me</a>
           </div>
-          <a href="https://theanchoress.substack.com/" class="block text-center bg-surface-container py-3 font-headline text-xs tracking-widest uppercase text-on-surface-variant hover:bg-surface-container-highest transition-all">Notify Me</a>
         </div>
 
         <!-- CD -->
-        <div class="bg-surface-container-lowest border-b-4 border-primary-container p-6 flex flex-col gap-6">
-          <div class="aspect-square bg-surface-container overflow-hidden">
+        <div class="bg-surface border-t-4 border-primary-container flex flex-col">
+          <div class="aspect-square overflow-hidden">
             <img class="w-full h-full object-cover" src="./As We Once Were Album Cover Draft.jpeg" alt="As We Once Were — Gatefold CD"/>
           </div>
-          <div class="space-y-2">
-            <h4 class="font-headline text-xl uppercase tracking-wide">Gatefold CD</h4>
-            <p class="text-sm text-on-surface-variant">14 track gatefold CD.</p>
+          <div class="p-5 flex flex-col gap-4 flex-1">
+            <div class="space-y-1">
+              <p class="font-headline text-[10px] tracking-[0.3em] uppercase text-on-surface-variant">CD</p>
+              <h4 class="font-headline text-lg uppercase tracking-tight leading-tight">Gatefold CD</h4>
+              <p class="font-body text-xs text-on-surface-variant leading-relaxed">14 track gatefold CD.</p>
+            </div>
+            <a href="https://theanchoress.substack.com/" class="mt-auto block text-center bg-on-surface text-surface font-headline py-3 text-xs tracking-widest uppercase hover:bg-primary transition-all">Notify Me</a>
           </div>
-          <a href="https://theanchoress.substack.com/" class="block text-center bg-surface-container py-3 font-headline text-xs tracking-widest uppercase text-on-surface-variant hover:bg-surface-container-highest transition-all">Notify Me</a>
         </div>
 
         <!-- Deluxe 2CD -->
-        <div class="bg-surface-container-lowest border-b-4 border-primary-container p-6 flex flex-col gap-6">
-          <div class="aspect-square bg-surface-container overflow-hidden">
+        <div class="bg-surface border-t-4 border-primary-container flex flex-col">
+          <div class="aspect-square overflow-hidden">
             <img class="w-full h-full object-cover" src="./As We Once Were Album Cover Draft.jpeg" alt="As We Once Were — Deluxe 2CD"/>
           </div>
-          <div class="space-y-2">
-            <h4 class="font-headline text-xl uppercase tracking-wide">Deluxe 2CD</h4>
-            <p class="text-sm text-on-surface-variant">Limited edition media book.</p>
+          <div class="p-5 flex flex-col gap-4 flex-1">
+            <div class="space-y-1">
+              <p class="font-headline text-[10px] tracking-[0.3em] uppercase text-on-surface-variant">Deluxe</p>
+              <h4 class="font-headline text-lg uppercase tracking-tight leading-tight">Deluxe 2CD</h4>
+              <p class="font-body text-xs text-on-surface-variant leading-relaxed">Limited edition media book.</p>
+            </div>
+            <a href="https://theanchoress.substack.com/" class="mt-auto block text-center bg-on-surface text-surface font-headline py-3 text-xs tracking-widest uppercase hover:bg-primary transition-all">Notify Me</a>
           </div>
-          <a href="https://theanchoress.substack.com/" class="block text-center bg-surface-container py-3 font-headline text-xs tracking-widest uppercase text-on-surface-variant hover:bg-surface-container-highest transition-all">Notify Me</a>
         </div>
 
         <!-- Cassette -->
-        <div class="bg-surface-container-lowest border-b-4 border-primary-container p-6 flex flex-col gap-6">
-          <div class="aspect-square bg-surface-container overflow-hidden">
+        <div class="bg-surface border-t-4 border-primary-container flex flex-col">
+          <div class="aspect-square overflow-hidden">
             <img class="w-full h-full object-cover" src="./As We Once Were Album Cover Draft.jpeg" alt="As We Once Were — Cassette"/>
           </div>
-          <div class="space-y-2">
-            <h4 class="font-headline text-xl uppercase tracking-wide">Cassette</h4>
-            <p class="text-sm text-on-surface-variant">Limited edition cassette tape.</p>
+          <div class="p-5 flex flex-col gap-4 flex-1">
+            <div class="space-y-1">
+              <p class="font-headline text-[10px] tracking-[0.3em] uppercase text-on-surface-variant">Cassette</p>
+              <h4 class="font-headline text-lg uppercase tracking-tight leading-tight">Cassette</h4>
+              <p class="font-body text-xs text-on-surface-variant leading-relaxed">Limited edition cassette tape.</p>
+            </div>
+            <a href="https://theanchoress.substack.com/" class="mt-auto block text-center bg-on-surface text-surface font-headline py-3 text-xs tracking-widest uppercase hover:bg-primary transition-all">Notify Me</a>
           </div>
-          <a href="https://theanchoress.substack.com/" class="block text-center bg-surface-container py-3 font-headline text-xs tracking-widest uppercase text-on-surface-variant hover:bg-surface-container-highest transition-all">Notify Me</a>
         </div>
 
       </div>
@@ -345,12 +364,222 @@
 
         <!-- Right: portrait -->
         <div>
-          <img
-            class="w-full object-cover aspect-square max-w-xs mx-auto lg:mx-0"
-            src="https://images.squarespace-cdn.com/content/v1/57324ed44c2f85206e403e64/d74a51a4-e80f-42b4-9f72-54ae0b77c6da/CATHERINE+ANNE+DAVIES+-+TOWNSHEND+STUDIO+-+CREDIT%3A+SEAN+ADAMS.jpg?format=2500w"
-            alt="Catherine Anne Davies (The Anchoress) — Photo: Sean Adams"
-          />
+          <div class="aspect-video overflow-hidden">
+            <img
+              class="w-full h-full object-cover object-top"
+              src="./portrait-studio.jpg"
+              alt="Catherine Anne Davies (The Anchoress) — Photo: Sean Adams"
+            />
+          </div>
           <p class="text-[10px] tracking-widest uppercase opacity-40 mt-2 text-right">Photo: Sean Adams</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CAREER TIMELINE ===================== -->
+  <section class="bg-surface-container-low py-16 px-6 lg:px-16">
+    <div class="lg:max-w-6xl lg:mx-auto space-y-10">
+      <div class="space-y-1">
+        <h3 class="font-headline text-3xl uppercase tracking-tighter">A Career in Music</h3>
+        <div class="w-12 h-1 bg-primary-container"></div>
+      </div>
+
+      <div>
+
+        <!-- 2014 -->
+        <div class="grid gap-x-4 grid-cols-[52px_24px_1fr] lg:grid-cols-[72px_24px_1fr]">
+          <span class="font-headline text-[10px] lg:text-xs tracking-widest uppercase text-on-surface-variant text-right pt-1">2014</span>
+          <div class="flex flex-col items-center">
+            <div class="w-2.5 h-2.5 rounded-full border-2 border-primary-container shrink-0 mt-0.5"></div>
+            <div class="w-px flex-1 bg-outline-variant/40 mt-1"></div>
+          </div>
+          <div class="pb-7 space-y-1.5">
+            <p class="font-headline text-sm uppercase tracking-tight leading-tight">Debut single 'What Goes Around'</p>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed">Premiered by Steve Lamacq on BBC Radio 6 Music. Released on Too Pure.</p>
+          </div>
+        </div>
+
+        <!-- 2015 -->
+        <div class="grid gap-x-4 grid-cols-[52px_24px_1fr] lg:grid-cols-[72px_24px_1fr]">
+          <span class="font-headline text-[10px] lg:text-xs tracking-widest uppercase text-on-surface-variant text-right pt-1">2015</span>
+          <div class="flex flex-col items-center">
+            <div class="w-2.5 h-2.5 rounded-full border-2 border-primary-container shrink-0 mt-0.5"></div>
+            <div class="w-px flex-1 bg-outline-variant/40 mt-1"></div>
+          </div>
+          <div class="pb-7 space-y-1.5">
+            <p class="font-headline text-sm uppercase tracking-tight leading-tight">Joins Simple Minds</p>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed">Keyboards, guitar and vocals. Plays 400+ shows over five years — including a performance at the <a href="https://youtu.be/sySohoBE59A?si=FmAmwLlI3yeSd5yG" target="_blank" class="underline hover:text-primary transition-colors">Billboard Music Awards in Las Vegas</a>.</p>
+          </div>
+        </div>
+
+        <!-- 2016 — MAJOR -->
+        <div class="grid gap-x-4 grid-cols-[52px_24px_1fr] lg:grid-cols-[72px_24px_1fr]">
+          <span class="font-headline text-[10px] lg:text-xs tracking-widest uppercase text-on-surface-variant text-right pt-1">2016</span>
+          <div class="flex flex-col items-center">
+            <div class="w-3.5 h-3.5 rounded-full bg-primary-container shrink-0 mt-0.5"></div>
+            <div class="w-px flex-1 bg-outline-variant/40 mt-1"></div>
+          </div>
+          <div class="pb-7 space-y-2">
+            <p class="font-headline text-sm uppercase tracking-tight leading-tight"><em>Confessions of a Romance Novelist</em></p>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed">Debut album, widely acclaimed on release.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="bg-primary-fixed/30 border border-outline text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">Guardian Critics' Album of the Year</span>
+              <span class="bg-primary-fixed/30 border border-outline text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">HMV Welsh Album of the Year</span>
+              <span class="bg-primary-fixed/30 border border-outline text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">PROG Best Newcomer</span>
+              <span class="border border-outline-variant text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">Welsh Music Prize nominated</span>
+            </div>
+            <blockquote class="font-body italic text-sm text-on-surface-variant border-l-2 border-primary-container pl-3 mt-2 leading-relaxed">"Kate Bush's Hounds of Love updated for the 21st century." — PROG</blockquote>
+          </div>
+        </div>
+
+        <!-- 2018: Manic Street Preachers duet -->
+        <div class="grid gap-x-4 grid-cols-[52px_24px_1fr] lg:grid-cols-[72px_24px_1fr]">
+          <span class="font-headline text-[10px] lg:text-xs tracking-widest uppercase text-on-surface-variant text-right pt-1">2018</span>
+          <div class="flex flex-col items-center">
+            <div class="w-2.5 h-2.5 rounded-full border-2 border-primary-container shrink-0 mt-0.5"></div>
+            <div class="w-px flex-1 bg-outline-variant/40 mt-1"></div>
+          </div>
+          <div class="pb-7 space-y-1.5">
+            <p class="font-headline text-sm uppercase tracking-tight leading-tight">Duet with Manic Street Preachers</p>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed">'Dylan &amp; Caitlin' on <em>Resistance Is Futile</em> — UK #2 album.</p>
+          </div>
+        </div>
+
+        <!-- 2018: Meltdown -->
+        <div class="grid gap-x-4 grid-cols-[52px_24px_1fr] lg:grid-cols-[72px_24px_1fr]">
+          <span class="font-headline text-[10px] lg:text-xs tracking-widest uppercase text-on-surface-variant text-right pt-1">2018</span>
+          <div class="flex flex-col items-center">
+            <div class="w-2.5 h-2.5 rounded-full border-2 border-primary-container shrink-0 mt-0.5"></div>
+            <div class="w-px flex-1 bg-outline-variant/40 mt-1"></div>
+          </div>
+          <div class="pb-7 space-y-1.5">
+            <p class="font-headline text-sm uppercase tracking-tight leading-tight">Meltdown Festival — invited by Robert Smith</p>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed">Performs at the Royal Festival Hall, Southbank Centre, London.</p>
+          </div>
+        </div>
+
+        <!-- 2020 -->
+        <div class="grid gap-x-4 grid-cols-[52px_24px_1fr] lg:grid-cols-[72px_24px_1fr]">
+          <span class="font-headline text-[10px] lg:text-xs tracking-widest uppercase text-on-surface-variant text-right pt-1">2020</span>
+          <div class="flex flex-col items-center">
+            <div class="w-2.5 h-2.5 rounded-full border-2 border-primary-container shrink-0 mt-0.5"></div>
+            <div class="w-px flex-1 bg-outline-variant/40 mt-1"></div>
+          </div>
+          <div class="pb-7 space-y-1.5">
+            <p class="font-headline text-sm uppercase tracking-tight leading-tight"><em>In Memory of My Feelings</em> — with Bernard Butler</p>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed">Collaborative album released via Pete Paphides' label Needle Mythology.</p>
+          </div>
+        </div>
+
+        <!-- 2021 — MAJOR -->
+        <div class="grid gap-x-4 grid-cols-[52px_24px_1fr] lg:grid-cols-[72px_24px_1fr]">
+          <span class="font-headline text-[10px] lg:text-xs tracking-widest uppercase text-on-surface-variant text-right pt-1">2021</span>
+          <div class="flex flex-col items-center">
+            <div class="w-3.5 h-3.5 rounded-full bg-primary-container shrink-0 mt-0.5"></div>
+            <div class="w-px flex-1 bg-outline-variant/40 mt-1"></div>
+          </div>
+          <div class="pb-7 space-y-2">
+            <p class="font-headline text-sm uppercase tracking-tight leading-tight"><em>The Art of Losing</em></p>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed">Written and produced entirely by Davies.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="bg-primary-fixed/30 border border-outline text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">UK Top 40</span>
+              <span class="bg-primary-fixed/30 border border-outline text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">Metacritic 83</span>
+              <span class="bg-primary-fixed/30 border border-outline text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">PROG Album of the Year</span>
+              <span class="bg-primary-fixed/30 border border-outline text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">#1 iTunes</span>
+              <span class="border border-outline-variant text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">Welsh Music Prize nominated</span>
+              <span class="border border-outline-variant text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">BBC 6 Music Album of the Day</span>
+              <span class="border border-outline-variant text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">MPG Self-Producing Artist nominated</span>
+            </div>
+            <blockquote class="font-body italic text-sm text-on-surface-variant border-l-2 border-primary-container pl-3 mt-2 leading-relaxed">"One of my favourite records of the year." — Sir Elton John</blockquote>
+          </div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="grid gap-x-4 grid-cols-[52px_24px_1fr] lg:grid-cols-[72px_24px_1fr]">
+          <span class="font-headline text-[10px] lg:text-xs tracking-widest uppercase text-on-surface-variant text-right pt-1">2022</span>
+          <div class="flex flex-col items-center">
+            <div class="w-2.5 h-2.5 rounded-full border-2 border-primary-container shrink-0 mt-0.5"></div>
+            <div class="w-px flex-1 bg-outline-variant/40 mt-1"></div>
+          </div>
+          <div class="pb-7 space-y-1.5">
+            <p class="font-headline text-sm uppercase tracking-tight leading-tight">1 million streams · 20,000 physical sales</p>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed">First of three consecutive MPG Self-Producing Artist of the Year nominations.</p>
+          </div>
+        </div>
+
+        <!-- 2023: Glastonbury -->
+        <div class="grid gap-x-4 grid-cols-[52px_24px_1fr] lg:grid-cols-[72px_24px_1fr]">
+          <span class="font-headline text-[10px] lg:text-xs tracking-widest uppercase text-on-surface-variant text-right pt-1">2023</span>
+          <div class="flex flex-col items-center">
+            <div class="w-2.5 h-2.5 rounded-full border-2 border-primary-container shrink-0 mt-0.5"></div>
+            <div class="w-px flex-1 bg-outline-variant/40 mt-1"></div>
+          </div>
+          <div class="pb-7 space-y-1.5">
+            <p class="font-headline text-sm uppercase tracking-tight leading-tight">Joins Manic Street Preachers at Glastonbury</p>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed">Performs 'Your Love Alone Is Not Enough' and 'This Is Yesterday' on stage.</p>
+          </div>
+        </div>
+
+        <!-- 2023: Versions -->
+        <div class="grid gap-x-4 grid-cols-[52px_24px_1fr] lg:grid-cols-[72px_24px_1fr]">
+          <span class="font-headline text-[10px] lg:text-xs tracking-widest uppercase text-on-surface-variant text-right pt-1">2023</span>
+          <div class="flex flex-col items-center">
+            <div class="w-2.5 h-2.5 rounded-full border-2 border-primary-container shrink-0 mt-0.5"></div>
+            <div class="w-px flex-1 bg-outline-variant/40 mt-1"></div>
+          </div>
+          <div class="pb-7 space-y-2">
+            <p class="font-headline text-sm uppercase tracking-tight leading-tight"><em>Versions</em> — covers album</p>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed">Released via the relaunched Drowned in Sound label.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="border border-outline-variant text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">★★★★ Sunday Times</span>
+              <span class="border border-outline-variant text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">★★★★ Mojo</span>
+              <span class="border border-outline-variant text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">★★★★ Record Collector</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2024 -->
+        <div class="grid gap-x-4 grid-cols-[52px_24px_1fr] lg:grid-cols-[72px_24px_1fr]">
+          <span class="font-headline text-[10px] lg:text-xs tracking-widest uppercase text-on-surface-variant text-right pt-1">2024</span>
+          <div class="flex flex-col items-center">
+            <div class="w-2.5 h-2.5 rounded-full border-2 border-primary-container shrink-0 mt-0.5"></div>
+            <div class="w-px flex-1 bg-outline-variant/40 mt-1"></div>
+          </div>
+          <div class="pb-7 space-y-1.5">
+            <p class="font-headline text-sm uppercase tracking-tight leading-tight">Appointed Professor of Music Production &amp; Songwriting</p>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed">ICMP &amp; SAE. Signs to ethical record label Last Night From Glasgow for third studio album, <em>As We Once Were</em>.</p>
+          </div>
+        </div>
+
+        <!-- 2025 -->
+        <div class="grid gap-x-4 grid-cols-[52px_24px_1fr] lg:grid-cols-[72px_24px_1fr]">
+          <span class="font-headline text-[10px] lg:text-xs tracking-widest uppercase text-on-surface-variant text-right pt-1">2025</span>
+          <div class="flex flex-col items-center">
+            <div class="w-2.5 h-2.5 rounded-full border-2 border-primary-container shrink-0 mt-0.5"></div>
+            <div class="w-px flex-1 bg-outline-variant/40 mt-1"></div>
+          </div>
+          <div class="pb-7 space-y-1.5">
+            <p class="font-headline text-sm uppercase tracking-tight leading-tight"><em>Communion</em> — proper release via Last Night From Glasgow</p>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed">Limited purple and white marble vinyl. First proper physical release of the 2011 mini-album.</p>
+          </div>
+        </div>
+
+        <!-- 2026 — MAJOR (final entry: no connector line) -->
+        <div class="grid gap-x-4 grid-cols-[52px_24px_1fr] lg:grid-cols-[72px_24px_1fr]">
+          <span class="font-headline text-[10px] lg:text-xs tracking-widest uppercase text-on-surface-variant text-right pt-1">2026</span>
+          <div class="flex flex-col items-center">
+            <div class="w-3.5 h-3.5 rounded-full bg-primary-container shrink-0 mt-0.5"></div>
+          </div>
+          <div class="pb-7 space-y-2">
+            <p class="font-headline text-sm uppercase tracking-tight leading-tight"><em>As We Once Were</em> — third studio album</p>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed">August 7th, 2026. Last Night From Glasgow. Fourteen songs about time, memory, and who we used to be.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="bg-primary-fixed/30 border border-outline text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">100 Club London</span>
+              <span class="bg-primary-fixed/30 border border-outline text-on-surface-variant font-headline text-[10px] tracking-widest uppercase px-2 py-0.5 inline-block">22nd August</span>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -369,7 +598,7 @@
         <!-- Confessions of a Romance Novelist -->
         <div class="bg-surface-container-lowest border-b-4 border-primary-container">
           <div class="aspect-square overflow-hidden">
-            <img class="w-full h-full object-cover" src="https://f4.bcbits.com/img/a1453238321_10.jpg" alt="Confessions of a Romance Novelist — Album Cover"/>
+            <img class="w-full h-full object-cover" src="./album-confessions.jpg" alt="Confessions of a Romance Novelist — Album Cover"/>
           </div>
           <div class="p-6 space-y-4">
             <div class="flex justify-between items-baseline">
@@ -394,7 +623,7 @@
         <!-- The Art of Losing -->
         <div class="bg-surface-container-lowest border-b-4 border-primary-container">
           <div class="aspect-square overflow-hidden">
-            <img class="w-full h-full object-cover" src="https://f4.bcbits.com/img/a1415026538_10.jpg" alt="The Art of Losing — Album Cover"/>
+            <img class="w-full h-full object-cover" src="./album-art-of-losing.jpg" alt="The Art of Losing — Album Cover"/>
           </div>
           <div class="p-6 space-y-4">
             <div class="flex justify-between items-baseline">
@@ -421,7 +650,31 @@
     </div>
   </section>
 
-  <!-- ===================== THE PODCAST ===================== -->
+  <!-- ===================== LIVE ===================== -->
+  <section id="live" class="bg-primary-container text-on-primary py-12 px-6 lg:px-16">
+    <div class="lg:max-w-4xl lg:mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+      <div class="space-y-4">
+        <div class="space-y-1">
+          <p class="font-headline text-xs tracking-[0.3em] uppercase opacity-70">On Sale Now</p>
+          <h3 class="font-headline text-3xl uppercase tracking-widest">Live</h3>
+          <div class="w-12 h-1 bg-on-primary"></div>
+        </div>
+        <div class="border-l-2 border-on-primary/40 pl-4 space-y-1">
+          <p class="font-headline text-sm uppercase tracking-widest">100 Club, London</p>
+          <p class="font-body italic opacity-80">August 22nd, 2026</p>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="https://www.theanchoress.co.uk/live" class="block text-center bg-on-primary text-primary font-headline py-4 px-10 tracking-[0.15em] uppercase hover:bg-primary-fixed transition-all">
+          Get Tickets →
+        </a>
+        <a href="https://theanchoress.substack.com/" class="block text-center font-headline py-4 px-10 tracking-[0.15em] uppercase transition-all" style="border: 1px solid rgba(255,255,255,0.5); color: #ffffff;">
+          Sign Up for More Dates
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section id="podcast" class="bg-on-surface text-surface py-20 px-6 lg:px-16">
     <div class="lg:max-w-3xl lg:mx-auto text-center space-y-8">
       <div class="space-y-4">
@@ -440,30 +693,6 @@
   <!-- ===================== NEWSLETTER ===================== -->
   <section id="newsletter" class="bg-[#1b1c19] text-surface py-20 px-6 lg:px-16">
     <div class="lg:max-w-xl lg:mx-auto space-y-12">
-
-      <!-- Live date -->
-      <div id="live" class="space-y-6">
-        <div class="space-y-1">
-          <p class="font-headline text-xs tracking-[0.3em] uppercase text-primary-container opacity-70">On Sale Now</p>
-          <h3 class="font-headline text-2xl uppercase tracking-widest" style="color:#ffffff;">Live</h3>
-          <div class="w-12 h-1 bg-primary-container"></div>
-        </div>
-        <div class="border-l-2 border-primary-container pl-4 space-y-1">
-          <p class="font-headline text-sm uppercase tracking-widest" style="color:#ffffff;">100 Club, London</p>
-          <p class="font-body italic opacity-70">August 22nd, 2026</p>
-        </div>
-        <div class="flex flex-col sm:flex-row gap-3">
-          <a href="https://www.theanchoress.co.uk/live" class="w-full sm:w-auto block text-center bg-primary-container text-on-primary font-headline py-4 px-8 tracking-[0.15em] uppercase hover:bg-primary transition-all">
-            Get Tickets →
-          </a>
-          <a href="https://theanchoress.substack.com/" class="w-full sm:w-auto block text-center font-headline py-4 px-8 tracking-[0.15em] uppercase transition-all" style="border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.7);">
-            Sign Up for More Dates
-          </a>
-        </div>
-      </div>
-
-      <!-- Divider -->
-      <div class="border-t border-white/10"></div>
 
       <!-- Newsletter -->
       <div class="text-center space-y-6">
@@ -486,9 +715,8 @@
 
 <!-- ===================== FOOTER ===================== -->
 <footer class="bg-[#1b1c19] text-[#ff6600] w-full flex flex-col items-center gap-8 text-center p-12 pb-28 lg:pb-12 border-t border-white/5">
-  <div class="space-y-4">
+  <div class="space-y-4 flex flex-col items-center">
     <img src="./Anchoress Logo.png" alt="The Anchoress" class="h-10 brightness-0 invert opacity-90"/>
-    <p class="font-body text-xs tracking-widest text-[#fbf9f4] opacity-50 uppercase">Last Night From Glasgow</p>
     <div class="flex flex-wrap justify-center gap-6">
       <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all" href="https://www.theanchoress.co.uk/">Website</a>
       <a class="text-[#fbf9f4] opacity-70 font-body text-xs tracking-widest uppercase hover:text-[#ff6600] hover:opacity-100 transition-all" href="https://www.instagram.com/theanchoressofficial/">Instagram</a>
@@ -507,11 +735,11 @@
     <span class="material-symbols-outlined mb-1">album</span>
     <span class="font-headline uppercase tracking-widest text-[10px]">Albums</span>
   </a>
-  <a class="flex flex-col items-center justify-center text-[#fbf9f4] px-4 py-2 hover:bg-[#a33e00] transition-all" href="https://www.theanchoress.co.uk/">
+  <a class="flex flex-col items-center justify-center text-[#fbf9f4] px-4 py-2 hover:bg-[#a33e00] transition-all" href="#live">
     <span class="material-symbols-outlined mb-1">event</span>
     <span class="font-headline uppercase tracking-widest text-[10px]">Tours</span>
   </a>
-  <a class="flex flex-col items-center justify-center text-[#1b1c19] bg-[#fbf9f4] px-4 py-2" href="https://found.ee/IHadAB">
+  <a class="flex flex-col items-center justify-center text-[#1b1c19] bg-[#fbf9f4] px-4 py-2" href="#editions">
     <span class="material-symbols-outlined mb-1">payments</span>
     <span class="font-headline uppercase tracking-widest text-[10px]">Store</span>
   </a>
