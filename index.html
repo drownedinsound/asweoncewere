@@ -154,46 +154,51 @@
   <!-- ===================== ANNOUNCEMENT STRIP ===================== -->
   <div class="bg-on-surface text-primary-container py-3 px-6 text-center">
     <a href="https://found.ee/IHadAB" class="font-headline text-xs tracking-[0.2em] uppercase hover:opacity-70 transition-opacity">
-      ★ &nbsp;Win a signed test pressing — pre-save now &nbsp;→
+      ★&nbsp; Pre-save &amp; win a signed test pressing &nbsp;→
     </a>
   </div>
 
   <!-- ===================== HERO ===================== -->
-  <section class="relative lg:grid lg:grid-cols-2 lg:min-h-screen">
 
-    <!-- Mobile background: full-bleed image + gradient overlay (hidden on desktop) -->
-    <div class="absolute inset-0 lg:hidden z-0">
-      <img
-        src="./hero-mobile.jpg"
-        class="w-full h-full object-cover object-top"
-        alt="The Anchoress (Catherine Anne Davies) — photo by Talie Rose Eigeland"
-      />
-      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.0) 100%);"></div>
-    </div>
+  <!-- MOBILE HERO (hidden on desktop) -->
+  <div class="lg:hidden bg-on-surface min-h-[60vh] flex flex-col justify-center px-6 pt-8 pb-36">
+    <p class="font-headline text-xs tracking-[0.2em] uppercase text-white/50">Third Studio Album</p>
+    <h1 class="font-headline text-5xl uppercase leading-none tracking-tight text-white mt-3">As We<br/>Once Were</h1>
+    <p class="font-body italic text-base text-white/80 max-w-xs leading-snug mt-3">Fourteen songs about time, memory, and who we used to be.</p>
+    <p class="font-headline text-xs tracking-widest uppercase text-white/50 mt-1">Out August 7th, 2026</p>
+    <a href="https://found.ee/IHadAB" class="w-full block text-center bg-primary-container text-on-primary font-headline py-5 px-8 tracking-[0.15em] uppercase hover:bg-primary transition-all active:scale-[0.98] mt-6">
+      Pre-Order Now
+    </a>
+    <a href="https://found.ee/IHadAB" class="font-headline text-xs tracking-widest uppercase text-white/40 underline underline-offset-4 text-center block mt-4">
+      Listen to Lead Single
+    </a>
+  </div>
 
-    <!-- Text panel: mobile = overlay (z-10, transparent bg); desktop = dark left column -->
-    <div class="relative z-10 bg-transparent lg:bg-on-surface px-6 py-16 pb-28 lg:pb-0 lg:px-12 xl:px-20 flex flex-col justify-end lg:justify-center min-h-[600px] lg:min-h-screen">
+  <!-- DESKTOP HERO (hidden on mobile) -->
+  <section class="hidden lg:grid lg:grid-cols-2 lg:min-h-screen">
+
+    <!-- Left panel: text -->
+    <div class="bg-on-surface px-12 xl:px-20 flex flex-col justify-center lg:min-h-screen">
       <div class="space-y-6">
         <div class="space-y-2">
           <p class="font-headline tracking-[0.2em] text-sm uppercase" style="color: #ffffff;">Third Studio Album</p>
-          <h1 class="font-headline text-4xl lg:text-7xl leading-tight tracking-tight uppercase" style="color: #ffffff; text-shadow: 0 1px 4px rgba(0,0,0,0.3);">As We<br/>Once<br/>Were</h1>
+          <h1 class="font-headline text-7xl leading-tight tracking-tight uppercase" style="color: #ffffff; text-shadow: 0 1px 4px rgba(0,0,0,0.3);">As We<br/>Once<br/>Were</h1>
           <p class="text-lg max-w-sm italic leading-snug" style="color: #f5f5f5; font-size: calc(1.125rem + 2px); text-shadow: 0 1px 3px rgba(0,0,0,0.4);">Fourteen songs about time, memory, and who we used to be.</p>
           <p class="text-sm uppercase tracking-widest font-headline" style="color: #eeeeee;">Out August 7th, 2026</p>
         </div>
-        <div class="flex flex-col sm:flex-row gap-3">
-          <a href="https://found.ee/IHadAB" class="w-full sm:w-auto block text-center bg-primary-container text-on-primary font-headline py-5 px-8 tracking-[0.15em] uppercase hover:bg-primary transition-all active:scale-[0.98]">
+        <div class="flex flex-row gap-3">
+          <a href="https://found.ee/IHadAB" class="block text-center bg-primary-container text-on-primary font-headline py-5 px-8 tracking-[0.15em] uppercase hover:bg-primary transition-all active:scale-[0.98]">
             Pre-Order Now
           </a>
-          <a href="https://found.ee/IHadAB" class="w-full sm:w-auto block text-center font-headline py-5 px-8 tracking-[0.15em] uppercase transition-all active:scale-[0.98]" style="border: 1px solid #ffffff; color: #ffffff;">
+          <a href="https://found.ee/IHadAB" class="block text-center font-headline py-5 px-8 tracking-[0.15em] uppercase transition-all active:scale-[0.98]" style="border: 1px solid #ffffff; color: #ffffff;">
             Listen to Lead Single
           </a>
         </div>
       </div>
-      <p class="lg:hidden absolute bottom-4 right-4 text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.35);">Photo: Talie Rose Eigeland</p>
     </div>
 
-    <!-- Right panel: image only, desktop -->
-    <div class="hidden lg:block relative overflow-hidden">
+    <!-- Right panel: image -->
+    <div class="relative overflow-hidden">
       <img
         src="./hero-desktop.jpg"
         class="w-full h-full object-cover object-center"
@@ -205,8 +210,14 @@
   </section>
 
   <!-- ===================== LEAD SINGLE BAND ===================== -->
-  <section id="single" class="bg-primary-container text-on-primary pt-12 pb-0 lg:py-12 px-6 lg:px-16">
-    <div class="lg:max-w-6xl lg:mx-auto lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
+  <section id="single" class="bg-primary-container text-on-primary pt-0 lg:pt-12 pb-0 lg:pb-12 px-0 lg:px-16">
+    <!-- Mobile single cover: full bleed, above text -->
+    <img
+      class="block lg:hidden w-full aspect-[3/4] object-cover object-top"
+      src="./single-cover-blank.jpg"
+      alt="I Had A Baby Not A Lobotomy — Single Cover"
+    />
+    <div class="lg:max-w-6xl lg:mx-auto lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center px-6 lg:px-0 pt-6 lg:pt-0">
       <div class="flex flex-col gap-6">
         <div class="space-y-1">
           <p class="font-headline text-xs tracking-[0.3em] uppercase opacity-70">New Single — Out Now</p>
@@ -220,12 +231,6 @@
         <a href="https://found.ee/IHadAB" class="inline-block self-start bg-on-primary text-primary font-headline py-4 px-8 tracking-[0.15em] uppercase hover:bg-primary-fixed transition-all">
           Listen Now →
         </a>
-        <!-- Single cover: below button on mobile, hidden on desktop (shown in right col on desktop) -->
-        <img
-          class="mt-4 w-4/5 max-w-sm mx-auto block lg:hidden"
-          src="./single-cover-blank.jpg"
-          alt="I Had A Baby Not A Lobotomy — Single Cover"
-        />
       </div>
       <div class="hidden lg:block">
         <img
@@ -1015,14 +1020,13 @@
       <div class="text-center space-y-6">
         <div class="space-y-3">
           <h3 class="font-headline text-4xl uppercase tracking-tighter leading-none text-primary-container">The Newsletter</h3>
-          <p class="font-body text-lg opacity-80 max-w-xs mx-auto">
-            First access, essays, and news direct from Catherine. Delivered via Substack.
+          <p class="font-body text-lg opacity-80 max-w-sm mx-auto">
+            Essays on making music independently — the economics, the politics, the creative process, and the things the industry would rather you didn't ask about. Plus first access to new releases and ticket pre-sales. Direct to your inbox. No algorithm decides when you see it.
           </p>
         </div>
         <a href="https://theanchoress.substack.com/" class="inline-block bg-primary-container text-on-primary font-headline py-5 px-12 tracking-[0.2em] uppercase hover:bg-primary transition-all">
           Subscribe
         </a>
-        <p class="text-[10px] tracking-widest opacity-40 uppercase">No algorithms. Just words.</p>
       </div>
 
     </div>
