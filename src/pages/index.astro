@@ -16,7 +16,16 @@ const latestNews = news.slice(0, 9);
 const tourDates = (await getCollection('tourDates')).sort(
   (a, b) => new Date(a.data.date).valueOf() - new Date(b.data.date).valueOf()
 );
-const substackPosts = await fetchSubstackPosts(new URL('feed', settings.substackUrl).toString());
+const rawSubstackPosts = await fetchSubstackPosts(new URL('feed', settings.substackUrl).toString());
+// Substack's RSS feed sometimes has no image (e.g. a podcast-audio enclosure
+// instead of a thumbnail). Rotate through Talie Rose Eigeland's campaign
+// photos rather than showing a repeated single fallback.
+const talieFallbacks = ['/images/gallery/talie-rose-eigeland-1.webp', '/images/gallery/talie-rose-eigeland-2.webp'];
+let talieFallbackIndex = 0;
+const substackPosts = rawSubstackPosts.map((post) => ({
+  ...post,
+  image: post.image || talieFallbacks[talieFallbackIndex++ % talieFallbacks.length],
+}));
 const productionParas = paragraphs(bio.production);
 const biogParas = paragraphs(bio.biog);
 
@@ -129,9 +138,7 @@ const jsonLd = {
       <div class="mt-6 grid sm:grid-cols-2 gap-6">
         {substackPosts.map((post) => (
           <a href={post.link} target="_blank" rel="noopener noreferrer" class="block border border-white/10 hover:border-white/30 transition-colors group">
-            {post.image && (
-              <img src={post.image} alt="" loading="lazy" class="w-full aspect-video object-cover" />
-            )}
+            <img src={post.image} alt="" loading="lazy" class="w-full aspect-video object-cover" />
             <div class="p-5">
               <p class="font-label text-xs tracking-[2px] uppercase text-white/40">
                 {new Date(post.pubDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
