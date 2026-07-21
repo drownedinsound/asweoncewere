@@ -18,15 +18,74 @@ const photos = [
 ];
 ---
 
-<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-  {photos.map((photo) => (
-    <img
-      src={photo.src}
-      alt={photo.alt}
-      width={photo.width}
-      height={photo.height}
-      loading="lazy"
-      class="w-full aspect-[2/3] object-cover hover:opacity-80 transition-opacity"
-    />
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3" data-photo-gallery>
+  {photos.map((photo, i) => (
+    <button type="button" data-photo-index={i} class="block w-full cursor-zoom-in" aria-label={`View larger: ${photo.alt}`}>
+      <img
+        src={photo.src}
+        alt={photo.alt}
+        width={photo.width}
+        height={photo.height}
+        loading="lazy"
+        class="w-full aspect-[2/3] object-cover hover:opacity-80 transition-opacity"
+      />
+    </button>
   ))}
 </div>
+
+<div
+  data-photo-lightbox
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-ink/90 p-6 cursor-zoom-out"
+>
+  <button type="button" data-photo-close aria-label="Close" class="absolute top-5 right-5 text-white/70 hover:text-white text-3xl leading-none">
+    &times;
+  </button>
+  <button type="button" data-photo-prev aria-label="Previous photo" class="absolute left-2 md:left-5 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-4xl leading-none px-2">
+    &lsaquo;
+  </button>
+  <button type="button" data-photo-next aria-label="Next photo" class="absolute right-2 md:right-5 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-4xl leading-none px-2">
+    &rsaquo;
+  </button>
+  <img data-photo-lightbox-img src="" alt="" class="max-w-full max-h-full object-contain cursor-auto" />
+</div>
+
+<script>
+  const photos = [...document.querySelectorAll<HTMLButtonElement>('[data-photo-gallery] [data-photo-index]')];
+  const lightbox = document.querySelector<HTMLElement>('[data-photo-lightbox]');
+  const lightboxImg = document.querySelector<HTMLImageElement>('[data-photo-lightbox-img]');
+  if (lightbox && lightboxImg && photos.length > 0) {
+    let current = 0;
+
+    const show = (index: number) => {
+      current = (index + photos.length) % photos.length;
+      const img = photos[current].querySelector('img');
+      if (img) {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+      }
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+    };
+
+    const close = () => {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+    };
+
+    photos.forEach((button, i) => button.addEventListener('click', () => show(i)));
+    document.querySelector('[data-photo-close]')?.addEventListener('click', close);
+    document.querySelector('[data-photo-prev]')?.addEventListener('click', () => show(current - 1));
+    document.querySelector('[data-photo-next]')?.addEventListener('click', () => show(current + 1));
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('hidden')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+  }
+</script>
