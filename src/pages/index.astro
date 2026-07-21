@@ -5,7 +5,8 @@ import PhotoGallery from '../components/PhotoGallery.astro';
 import PressQuote from '../components/PressQuote.astro';
 import { getCollection, getEntry } from 'astro:content';
 import { fetchSubstackPosts } from '../lib/substack';
-import { youtubeEmbedSrc } from '../lib/youtube';
+import { youtubeEmbedSrc, youtubeVideoId } from '../lib/youtube';
+import YouTubeFacade from '../components/YouTubeFacade.astro';
 import { paragraphs } from '../lib/text';
 
 const settings = (await getEntry('settings', 'settings'))!.data;
@@ -30,19 +31,15 @@ for (const q of quotes) {
 
 <Layout title="The Anchoress">
   <div class="max-w-4xl mx-auto px-6 mt-10">
-    <div class="aspect-video w-full">
-      <iframe
-        class="w-full h-full"
-        src={youtubeEmbedSrc(settings.heroVideoUrl)}
-        title="The Anchoress"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
+    <YouTubeFacade
+      embedSrc={youtubeEmbedSrc(settings.heroVideoUrl)}
+      videoId={youtubeVideoId(settings.heroVideoUrl)}
+      title="The Anchoress"
+    />
   </div>
 
   <div class="max-w-2xl mx-auto px-6 mt-10 text-center">
-    <p class="font-label text-xs tracking-[2px] uppercase text-white/40 mb-3">As We Once Were, Third Studio Album</p>
+    <p class="font-label text-xs tracking-[2px] uppercase text-white/40 mb-3">As We Once Were, The Third Studio Album From The Anchoress</p>
     <p class="font-headline text-xl md:text-2xl uppercase text-cream leading-snug">
       "Her most sonically adventurous record yet." <span class="text-white/40 normal-case tracking-normal font-body italic text-base align-middle">NME</span>
     </p>

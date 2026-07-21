@@ -12,3 +12,10 @@ export function youtubeEmbedSrc(url: string): string {
   }
   return url;
 }
+
+// Extracts the specific video ID from a watch/youtu.be URL, for pulling a real
+// thumbnail image. Returns null for a bare playlist URL with no ?v= on it.
+export function youtubeVideoId(url: string): string | null {
+  const parsed = new URL(url);
+  return parsed.searchParams.get('v') || (parsed.hostname === 'youtu.be' ? parsed.pathname.slice(1) : null);
+}

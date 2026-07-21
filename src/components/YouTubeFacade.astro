@@ -1,0 +1,55 @@
+---
+interface Props {
+  embedSrc: string;
+  videoId: string | null;
+  title: string;
+}
+const { embedSrc, videoId, title } = Astro.props;
+const poster = videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : null;
+const autoplaySrc = embedSrc + (embedSrc.includes('?') ? '&' : '?') + 'autoplay=1';
+---
+
+<div class="aspect-video w-full relative group cursor-pointer overflow-hidden bg-ink" data-video-facade data-embed-src={autoplaySrc} data-title={title}>
+  {poster ? (
+    <img
+      src={poster}
+      alt={title}
+      loading="lazy"
+      class="w-full h-full object-cover"
+      data-fallback={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+    />
+  ) : (
+    <div class="w-full h-full"></div>
+  )}
+  <div class="absolute inset-0 flex items-center justify-center bg-ink/20 group-hover:bg-ink/10 transition-colors">
+    <span class="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-cream/95 group-hover:bg-white transition-colors">
+      <svg viewBox="0 0 24 24" class="w-6 h-6 md:w-7 md:h-7 text-ink translate-x-0.5" fill="currentColor">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+    </span>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-video-facade]').forEach((facade) => {
+    const img = facade.querySelector('img');
+    img?.addEventListener('error', () => {
+      const fallback = img.dataset.fallback;
+      if (fallback) img.src = fallback;
+    });
+
+    facade.addEventListener(
+      'click',
+      () => {
+        const iframe = document.createElement('iframe');
+        iframe.src = facade.dataset.embedSrc || '';
+        iframe.title = facade.dataset.title || 'Video';
+        iframe.className = 'w-full h-full';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        facade.replaceWith(iframe);
+      },
+      { once: true }
+    );
+  });
+</script>
