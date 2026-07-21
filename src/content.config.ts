@@ -50,6 +50,7 @@ const settings = defineCollection({
     }),
     storeUrl: z.string(),
     substackUrl: z.string(),
+    patreonUrl: z.string(),
     heroVideoUrl: z.string(),
     preorderUrl: z.string(),
     preorderText: z.string(),

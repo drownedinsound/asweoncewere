@@ -12,6 +12,7 @@ const settings = await getEntry('settings', 'settings');
 const social = settings!.data.social;
 const storeUrl = settings!.data.storeUrl;
 const substackUrl = settings!.data.substackUrl;
+const patreonUrl = settings!.data.patreonUrl;
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -101,7 +102,15 @@ const navLinks = [
     </main>
 
     <footer class="border-t border-white/10 mt-24">
-      <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col items-center gap-2 text-center">
+      <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col items-center gap-3 text-center">
+        <a
+          href={patreonUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-label text-xs tracking-[2px] uppercase text-white/50 hover:text-white transition-colors"
+        >
+          Support on Patreon →
+        </a>
         <p class="font-label text-xs tracking-[2px] uppercase text-white/40">
           &copy; {new Date().getFullYear()} The Anchoress
         </p>

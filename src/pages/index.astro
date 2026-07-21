@@ -88,14 +88,19 @@ for (const q of quotes) {
       </div>
       <div class="mt-6 grid sm:grid-cols-2 gap-6">
         {substackPosts.map((post) => (
-          <a href={post.link} target="_blank" rel="noopener noreferrer" class="block border border-white/10 p-5 hover:border-white/30 transition-colors group">
-            <p class="font-label text-xs tracking-[2px] uppercase text-white/40">
-              {new Date(post.pubDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
-            </p>
-            <h3 class="font-headline text-lg uppercase tracking-tight text-white mt-2 group-hover:text-cream transition-colors">
-              {post.title}
-            </h3>
-            {post.excerpt && <p class="font-body italic text-white/60 mt-2 text-sm">{post.excerpt}</p>}
+          <a href={post.link} target="_blank" rel="noopener noreferrer" class="block border border-white/10 hover:border-white/30 transition-colors group">
+            {post.image && (
+              <img src={post.image} alt="" loading="lazy" class="w-full aspect-video object-cover" />
+            )}
+            <div class="p-5">
+              <p class="font-label text-xs tracking-[2px] uppercase text-white/40">
+                {new Date(post.pubDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+              </p>
+              <h3 class="font-headline text-lg uppercase tracking-tight text-white mt-2 group-hover:text-cream transition-colors">
+                {post.title}
+              </h3>
+              {post.excerpt && <p class="font-body italic text-white/60 mt-2 text-sm">{post.excerpt}</p>}
+            </div>
           </a>
         ))}
       </div>

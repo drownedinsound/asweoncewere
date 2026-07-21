@@ -3,6 +3,7 @@ export interface SubstackPost {
   link: string;
   pubDate: string;
   excerpt: string;
+  image: string;
 }
 
 function decodeEntities(str: string): string {
@@ -19,6 +20,14 @@ function extractTag(xml: string, tag: string): string {
   return match ? decodeEntities(match[1].trim()) : '';
 }
 
+function extractEnclosureImage(xml: string): string {
+  const match = xml.match(/<enclosure url="([^"]+)"/);
+  if (!match) return '';
+  const url = decodeEntities(match[1]);
+  // Substack sometimes attaches a podcast audio enclosure instead of an image one.
+  return /\.(png|jpe?g|webp|gif)(\?|$)|\/image\//i.test(url) ? url : '';
+}
+
 export async function fetchSubstackPosts(feedUrl: string, limit = 4): Promise<SubstackPost[]> {
   try {
     const res = await fetch(feedUrl);
@@ -30,6 +39,7 @@ export async function fetchSubstackPosts(feedUrl: string, limit = 4): Promise<Su
       link: extractTag(item, 'link'),
       pubDate: extractTag(item, 'pubDate'),
       excerpt: extractTag(item, 'description'),
+      image: extractEnclosureImage(item),
     }));
   } catch {
     return [];
