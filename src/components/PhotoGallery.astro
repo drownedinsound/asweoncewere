@@ -2,19 +2,19 @@
 // Talie Rose Eigeland shot this album campaign - lead with her photos.
 // Everything after is from earlier album eras.
 const photos = [
-  { src: '/images/gallery/talie-rose-eigeland-1.jpg', alt: 'The Anchoress, photo by Talie Rose Eigeland' },
-  { src: '/images/gallery/talie-rose-eigeland-2.jpg', alt: 'The Anchoress, photo by Talie Rose Eigeland' },
-  { src: '/images/gallery/sean-adams-studio-1.webp', alt: 'Catherine Anne Davies at Townshend Studio, photo by Sean Adams' },
-  { src: '/images/gallery/isabella-charlesworth-1.webp', alt: 'The Anchoress, photo by Isabella Charlesworth' },
-  { src: '/images/gallery/jodie-cartman-2.webp', alt: 'The Anchoress, photo by Jodie Cartman' },
-  { src: '/images/gallery/isabella-charlesworth-2.webp', alt: 'The Anchoress, photo by Isabella Charlesworth' },
-  { src: '/images/gallery/annick-wolfers-1.webp', alt: 'The Anchoress, photo by Annick Wolfers' },
-  { src: '/images/gallery/isabella-charlesworth-3.webp', alt: 'The Anchoress, photo by Isabella Charlesworth' },
-  { src: '/images/gallery/roberto-foddai-1.webp', alt: 'The Anchoress, photo by Roberto Foddai' },
-  { src: '/images/gallery/isabella-charlesworth-4.webp', alt: 'The Anchoress, photo by Isabella Charlesworth' },
-  { src: '/images/gallery/annick-wolfers-2.webp', alt: 'The Anchoress, photo by Annick Wolfers' },
-  { src: '/images/gallery/isabella-charlesworth-5.webp', alt: 'The Anchoress, photo by Isabella Charlesworth' },
-  { src: '/images/gallery/frances-main-1.jpg', alt: 'The Anchoress, photo by Frances Main' },
+  { src: '/images/gallery/talie-rose-eigeland-1.webp', alt: 'The Anchoress, photo by Talie Rose Eigeland', width: 800, height: 900 },
+  { src: '/images/gallery/talie-rose-eigeland-2.webp', alt: 'The Anchoress, photo by Talie Rose Eigeland', width: 900, height: 472 },
+  { src: '/images/gallery/sean-adams-studio-1.webp', alt: 'Catherine Anne Davies at Townshend Studio, photo by Sean Adams', width: 1600, height: 898 },
+  { src: '/images/gallery/isabella-charlesworth-1.webp', alt: 'The Anchoress, photo by Isabella Charlesworth', width: 1000, height: 667 },
+  { src: '/images/gallery/jodie-cartman-2.webp', alt: 'The Anchoress, photo by Jodie Cartman', width: 900, height: 1354 },
+  { src: '/images/gallery/isabella-charlesworth-2.webp', alt: 'The Anchoress, photo by Isabella Charlesworth', width: 1000, height: 1500 },
+  { src: '/images/gallery/annick-wolfers-1.webp', alt: 'The Anchoress, photo by Annick Wolfers', width: 1000, height: 1500 },
+  { src: '/images/gallery/isabella-charlesworth-3.webp', alt: 'The Anchoress, photo by Isabella Charlesworth', width: 800, height: 534 },
+  { src: '/images/gallery/roberto-foddai-1.webp', alt: 'The Anchoress, photo by Roberto Foddai', width: 750, height: 541 },
+  { src: '/images/gallery/isabella-charlesworth-4.webp', alt: 'The Anchoress, photo by Isabella Charlesworth', width: 800, height: 534 },
+  { src: '/images/gallery/annick-wolfers-2.webp', alt: 'The Anchoress, photo by Annick Wolfers', width: 800, height: 534 },
+  { src: '/images/gallery/isabella-charlesworth-5.webp', alt: 'The Anchoress, photo by Isabella Charlesworth', width: 800, height: 534 },
+  { src: '/images/gallery/frances-main-1.webp', alt: 'The Anchoress, photo by Frances Main', width: 900, height: 600 },
 ];
 ---
 
@@ -23,6 +23,8 @@ const photos = [
     <img
       src={photo.src}
       alt={photo.alt}
+      width={photo.width}
+      height={photo.height}
       loading="lazy"
       class="w-full aspect-[2/3] object-cover hover:opacity-80 transition-opacity"
     />

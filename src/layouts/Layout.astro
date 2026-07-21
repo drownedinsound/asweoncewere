@@ -35,7 +35,11 @@ const navLinks = [
     <link rel="canonical" href={new URL(Astro.url.pathname, 'https://asweoncewere.com').toString()} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://use.typekit.net" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://use.typekit.net/ety4fua.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -53,7 +57,7 @@ const navLinks = [
     <header class="border-b border-white/10">
       <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col items-center gap-6">
         <a href="/" class="inline-block">
-          <img src="/images/logo.png" alt="The Anchoress" class="h-10 md:h-12 w-auto invert" />
+          <img src="/images/logo.png" alt="The Anchoress" width="2762" height="751" class="h-10 md:h-12 w-auto invert" />
         </a>
         <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
           {navLinks.map((link) => (

@@ -3,8 +3,9 @@ interface Props {
   embedSrc: string;
   videoId: string | null;
   title: string;
+  priority?: boolean;
 }
-const { embedSrc, videoId, title } = Astro.props;
+const { embedSrc, videoId, title, priority = false } = Astro.props;
 const poster = videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : null;
 const autoplaySrc = embedSrc + (embedSrc.includes('?') ? '&' : '?') + 'autoplay=1';
 ---
@@ -14,7 +15,10 @@ const autoplaySrc = embedSrc + (embedSrc.includes('?') ? '&' : '?') + 'autoplay=
     <img
       src={poster}
       alt={title}
-      loading="lazy"
+      loading={priority ? 'eager' : 'lazy'}
+      fetchpriority={priority ? 'high' : 'auto'}
+      width="1280"
+      height="720"
       class="w-full h-full object-cover"
       data-fallback={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
     />
