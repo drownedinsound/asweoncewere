@@ -9,18 +9,18 @@ const { slug, title, date, image } = Astro.props;
 const formatted = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 
-<a href={`/news/${slug}`} class="flex gap-5 items-start py-6 border-b border-white/10 group">
+<a href={`/news/${slug}`} class="flex gap-6 items-start py-8 border-b border-white/10 group">
   {image && (
     <img
       src={image}
       alt=""
       loading="lazy"
-      class="w-20 h-20 sm:w-24 sm:h-24 object-cover flex-shrink-0 grayscale-[30%] group-hover:grayscale-0 transition-all"
+      class="w-28 sm:w-40 aspect-[4/5] object-cover flex-shrink-0 grayscale-[30%] group-hover:grayscale-0 transition-all"
     />
   )}
   <div>
     <p class="font-label text-xs tracking-[2px] uppercase text-white/40">{formatted}</p>
-    <h3 class="font-headline text-xl md:text-2xl uppercase tracking-tight text-white mt-2 group-hover:text-cream transition-colors">
+    <h3 class="font-headline text-xl md:text-3xl uppercase tracking-tight text-white mt-2 group-hover:text-cream transition-colors">
       {title}
     </h3>
   </div>
