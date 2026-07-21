@@ -26,6 +26,7 @@ const press = defineCollection({
   schema: z.object({
     quote: z.string(),
     source: z.string(),
+    sourceUrl: z.string().optional(),
     forAlbum: z.string().optional(),
   }),
 });

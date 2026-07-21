@@ -2,11 +2,20 @@
 interface Props {
   quote: string;
   source: string;
+  sourceUrl?: string;
 }
-const { quote, source } = Astro.props;
+const { quote, source, sourceUrl } = Astro.props;
 ---
 
 <blockquote class="border-l-2 border-cream/40 pl-5 py-1">
   <p class="font-body italic text-lg text-white/90 leading-snug">&ldquo;{quote}&rdquo;</p>
-  <cite class="not-italic font-label text-xs tracking-[2px] uppercase text-white/50 block mt-2">{source}</cite>
+  {sourceUrl ? (
+    <cite class="not-italic font-label text-xs tracking-[2px] uppercase text-white/50 block mt-2">
+      <a href={sourceUrl} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors underline underline-offset-2">
+        {source}
+      </a>
+    </cite>
+  ) : (
+    <cite class="not-italic font-label text-xs tracking-[2px] uppercase text-white/50 block mt-2">{source}</cite>
+  )}
 </blockquote>

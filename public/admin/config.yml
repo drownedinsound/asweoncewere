@@ -48,6 +48,7 @@ collections:
     fields:
       - { label: "Quote", name: "quote", widget: "text" }
       - { label: "Source", name: "source", widget: "string" }
+      - { label: "Source URL (links the quote to the review)", name: "sourceUrl", widget: "string", required: false }
       - { label: "Album (optional, groups quotes)", name: "forAlbum", widget: "string", required: false }
 
   - name: "bio"

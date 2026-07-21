@@ -1,12 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap');
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Peckham Press";
+  src: url("/fonts/PeckhamPress-Trial.otf") format("opentype");
+  font-display: swap;
+}
 
 @theme {
   --color-ink: #100806;
   --color-cream: #e8d2bf;
   --color-paper: #ffffff;
 
-  --font-headline: "Cinzel", serif;
+  --font-headline: "Peckham Press", "Cinzel", serif;
   --font-label: "Source Code Pro", monospace;
   --font-body: Georgia, serif;
 }

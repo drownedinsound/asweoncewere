@@ -13,14 +13,14 @@ const formatted = post.data.date.toLocaleDateString('en-GB', { day: 'numeric', m
 ---
 
 <Layout title={`${post.data.title} — The Anchoress`}>
-  <article class="max-w-3xl mx-auto px-6 py-16">
+  <article class="max-w-2xl mx-auto px-6 py-16">
     <a href="/news" class="font-label text-xs tracking-[2px] uppercase text-white/50 hover:text-white transition-colors">← All News</a>
     <p class="font-label text-xs tracking-[2px] uppercase text-white/40 mt-8">{formatted}</p>
     <h1 class="font-headline text-3xl md:text-4xl uppercase tracking-tight text-white mt-3 mb-10">{post.data.title}</h1>
     {post.data.image && (
       <img src={post.data.image} alt="" class="w-full max-w-md mx-auto mb-10" loading="lazy" />
     )}
-    <div class="font-body text-white/90 leading-relaxed [&>p]:mb-5 [&_a]:text-cream [&_a]:underline [&_strong]:text-white [&_strong]:font-headline [&_strong]:uppercase [&_strong]:tracking-wide [&_strong]:text-sm [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-5">
+    <div class="font-body text-lg text-white/90 leading-relaxed [&>p]:mb-5 [&_a]:text-cream [&_a]:underline [&_strong]:text-white [&_strong]:font-headline [&_strong]:uppercase [&_strong]:tracking-wide [&_strong]:text-sm [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-5">
       <Content />
     </div>
   </article>
