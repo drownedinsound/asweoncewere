@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import NewsCard from '../components/NewsCard.astro';
 import { getCollection, getEntry } from 'astro:content';
 import { fetchSubstackPosts } from '../lib/substack';
+import { youtubeEmbedSrc } from '../lib/youtube';
 
 const settings = (await getEntry('settings', 'settings'))!.data;
 const news = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -29,7 +30,7 @@ const substackPosts = await fetchSubstackPosts(new URL('feed', settings.substack
     <div class="aspect-video w-full">
       <iframe
         class="w-full h-full"
-        src={`https://www.youtube.com/embed/${new URL(settings.heroVideoUrl).searchParams.get('v')}`}
+        src={youtubeEmbedSrc(settings.heroVideoUrl)}
         title="The Anchoress"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
