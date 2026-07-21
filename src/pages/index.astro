@@ -27,6 +27,17 @@ const substackPosts = await fetchSubstackPosts(new URL('feed', settings.substack
     </a>
   </div>
 
+  <div class="max-w-4xl mx-auto px-6 mt-6 flex justify-center">
+    <a
+      href={new URL('subscribe', settings.substackUrl).toString()}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-block bg-cream text-ink font-label text-xs tracking-[2px] uppercase px-8 py-4 hover:bg-white transition-colors"
+    >
+      Join the Mailing List
+    </a>
+  </div>
+
   <div class="max-w-4xl mx-auto px-6 mt-16">
     <div class="aspect-video w-full">
       <iframe
