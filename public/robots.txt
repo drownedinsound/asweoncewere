@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://asweoncewere.com/sitemap-index.xml
