@@ -1,4 +1,5 @@
 ---
+image: /images/news/2026-05-26-ivor-novello-awards-2026.webp
 title: "The Anchoress judges Ivor Novello Awards 2026"
 date: 2026-05-26
 ---

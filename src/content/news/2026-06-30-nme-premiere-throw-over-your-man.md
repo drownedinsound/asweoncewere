@@ -1,4 +1,5 @@
 ---
+image: /images/news/2026-06-30-nme-premiere-throw-over-your-man.webp
 title: "NME premiere new video for Throw Over Your Man"
 date: 2026-06-30
 ---

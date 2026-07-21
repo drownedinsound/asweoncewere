@@ -1,4 +1,5 @@
 ---
+image: /images/news/2026-04-15-preorder-as-we-once-were.webp
 title: "Preorder As We Once Were"
 date: 2026-04-15
 ---

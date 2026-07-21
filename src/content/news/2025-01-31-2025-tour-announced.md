@@ -1,4 +1,5 @@
 ---
+image: /images/news/2025-01-31-2025-tour-announced.webp
 title: "2025 tour announced"
 date: 2025-01-31
 ---

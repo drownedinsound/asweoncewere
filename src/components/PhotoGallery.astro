@@ -1,0 +1,26 @@
+---
+const photos = [
+  { src: '/images/gallery/annick-wolfers-1.webp', alt: 'The Anchoress, photo by Annick Wolfers' },
+  { src: '/images/gallery/isabella-charlesworth-1.webp', alt: 'The Anchoress, photo by Isabella Charlesworth' },
+  { src: '/images/gallery/jodie-cartman-1.webp', alt: 'The Anchoress, photo by Jodie Cartman' },
+  { src: '/images/gallery/isabella-charlesworth-2.webp', alt: 'The Anchoress, photo by Isabella Charlesworth' },
+  { src: '/images/gallery/talie-rose-eigeland-1.webp', alt: 'The Anchoress, photo by Talie Rose Eigeland' },
+  { src: '/images/gallery/isabella-charlesworth-3.webp', alt: 'The Anchoress, photo by Isabella Charlesworth' },
+  { src: '/images/gallery/jodie-cartman-2.webp', alt: 'The Anchoress, photo by Jodie Cartman' },
+  { src: '/images/gallery/annick-wolfers-2.webp', alt: 'The Anchoress, photo by Annick Wolfers' },
+  { src: '/images/gallery/isabella-charlesworth-4.webp', alt: 'The Anchoress, photo by Isabella Charlesworth' },
+  { src: '/images/gallery/roberto-foddai-1.webp', alt: 'The Anchoress, photo by Roberto Foddai' },
+  { src: '/images/gallery/isabella-charlesworth-5.webp', alt: 'The Anchoress, photo by Isabella Charlesworth' },
+];
+---
+
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+  {photos.map((photo) => (
+    <img
+      src={photo.src}
+      alt={photo.alt}
+      loading="lazy"
+      class="w-full aspect-[2/3] object-cover hover:opacity-80 transition-opacity"
+    />
+  ))}
+</div>

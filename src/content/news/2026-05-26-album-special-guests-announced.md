@@ -1,4 +1,5 @@
 ---
+image: /images/news/2026-05-26-album-special-guests-announced.webp
 title: "As We Once Were album special guests announced"
 date: 2026-05-26
 ---

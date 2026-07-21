@@ -1,4 +1,5 @@
 ---
+image: /images/news/2024-12-30-communion-reissue.webp
 title: "Communion reissue"
 date: 2024-12-30
 ---

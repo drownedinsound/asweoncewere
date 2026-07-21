@@ -1,4 +1,5 @@
 ---
+image: /images/news/2026-04-13-new-album-announced-with-nme.webp
 title: "New album announced with NME"
 date: 2026-04-13
 ---

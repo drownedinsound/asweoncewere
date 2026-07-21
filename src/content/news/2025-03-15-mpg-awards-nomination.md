@@ -1,4 +1,5 @@
 ---
+image: /images/news/2025-03-15-mpg-awards-nomination.webp
 title: "The Anchoress nominated for 2025 Music Producers Guild Awards"
 date: 2025-03-15
 ---

@@ -1,4 +1,5 @@
 ---
+image: /images/news/2026-06-30-james-dean-bradfield-new-single.webp
 title: "James Dean Bradfield of Manic Street Preachers features on new single"
 date: 2026-06-30
 ---

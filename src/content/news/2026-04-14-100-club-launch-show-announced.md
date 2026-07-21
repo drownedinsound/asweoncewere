@@ -1,4 +1,5 @@
 ---
+image: /images/news/2026-04-14-100-club-launch-show-announced.webp
 title: "Album launch show announced at 100 Club"
 date: 2026-04-14
 ---
