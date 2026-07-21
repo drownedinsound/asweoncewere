@@ -191,33 +191,9 @@ const jsonLd = {
     </div>
   </section>
 
-  <section id="production" class="relative mt-20 scroll-mt-8 overflow-hidden">
-    <img
-      src="/images/gallery/sean-adams-studio-1.webp"
-      alt=""
-      aria-hidden="true"
-      width="1600"
-      height="898"
-      loading="lazy"
-      class="absolute inset-0 w-full h-full object-cover opacity-40"
-    />
-    <div class="absolute inset-0 bg-ink/55"></div>
-    <div class="relative max-w-2xl mx-auto px-6 py-16">
-      <h2 class="font-headline text-2xl tracking-[2px] uppercase text-cream mb-10">
-        Catherine Anne Davies — Production &amp; Co-Writing
-      </h2>
-      <img
-        src="/images/gallery/roberto-foddai-1.webp"
-        alt="Catherine Anne Davies in the studio"
-        width="750"
-        height="541"
-        class="w-full mb-10"
-        loading="lazy"
-      />
-      <div class="font-body text-lg text-white/90 leading-relaxed space-y-5 [&_strong]:font-headline [&_strong]:uppercase [&_strong]:tracking-wide [&_strong]:text-cream [&_strong]:text-sm [&_strong]:block [&_strong]:mt-8 [&_strong]:mb-1">
-        {productionParas.map((p) => <p set:html={p} />)}
-      </div>
-    </div>
+  <section class="max-w-4xl mx-auto px-6 mt-20">
+    <h2 class="font-headline text-2xl tracking-[2px] uppercase text-cream mb-6">Photos</h2>
+    <PhotoGallery />
   </section>
 
   <section id="tracklist" class="max-w-2xl mx-auto px-6 mt-20 scroll-mt-8">
@@ -326,9 +302,33 @@ const jsonLd = {
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto px-6 mt-20">
-    <h2 class="font-headline text-2xl tracking-[2px] uppercase text-cream mb-6">Photos</h2>
-    <PhotoGallery />
+  <section id="production" class="relative mt-20 scroll-mt-8 overflow-hidden">
+    <img
+      src="/images/gallery/sean-adams-studio-1.webp"
+      alt=""
+      aria-hidden="true"
+      width="1600"
+      height="898"
+      loading="lazy"
+      class="absolute inset-0 w-full h-full object-cover opacity-40"
+    />
+    <div class="absolute inset-0 bg-ink/55"></div>
+    <div class="relative max-w-2xl mx-auto px-6 py-16">
+      <h2 class="font-headline text-2xl tracking-[2px] uppercase text-cream mb-10">
+        Catherine Anne Davies — Production &amp; Co-Writing
+      </h2>
+      <img
+        src="/images/gallery/roberto-foddai-1.webp"
+        alt="Catherine Anne Davies in the studio"
+        width="750"
+        height="541"
+        class="w-full mb-10"
+        loading="lazy"
+      />
+      <div class="font-body text-lg text-white/90 leading-relaxed space-y-5 [&_strong]:font-headline [&_strong]:uppercase [&_strong]:tracking-wide [&_strong]:text-cream [&_strong]:text-sm [&_strong]:block [&_strong]:mt-8 [&_strong]:mb-1">
+        {productionParas.map((p) => <p set:html={p} />)}
+      </div>
+    </div>
   </section>
 
   <section class="max-w-4xl mx-auto px-6 mt-20 pb-20">
@@ -338,7 +338,6 @@ const jsonLd = {
         { videoId: 'HLFqdfYeVJ4', label: 'The Exchange, feat. James Dean Bradfield' },
         { videoId: 'oq4-09lk3Wc', label: 'Show Your Face' },
         { videoId: 'Z2FXZeJED2w', label: "Doesn't Kill You" },
-        { videoId: 'AP0MpWelbx8', label: 'One For Sorrow' },
         { videoId: 'Apqk3dfs7qQ', label: 'Enjoy The Silence' },
       ].map((v) => (
         <div>
