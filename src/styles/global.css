@@ -6,7 +6,7 @@
   --color-cream: #e8d2bf;
   --color-paper: #ffffff;
 
-  --font-headline: "peckham-press", "Cinzel", serif;
+  --font-headline: "peckham-press", sans-serif;
   --font-label: "Source Code Pro", monospace;
   --font-body: Georgia, serif;
 }
@@ -15,4 +15,9 @@ body {
   background-color: var(--color-ink);
   color: rgb(255 255 255 / 0.9);
   font-family: var(--font-body);
+}
+
+.font-headline {
+  font-weight: 400;
+  font-style: normal;
 }
