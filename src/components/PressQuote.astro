@@ -1,0 +1,12 @@
+---
+interface Props {
+  quote: string;
+  source: string;
+}
+const { quote, source } = Astro.props;
+---
+
+<blockquote class="border-l-2 border-cream/40 pl-5 py-1">
+  <p class="font-body italic text-lg text-white/90 leading-snug">&ldquo;{quote}&rdquo;</p>
+  <cite class="not-italic font-label text-xs tracking-[2px] uppercase text-white/50 block mt-2">{source}</cite>
+</blockquote>

@@ -1,0 +1,16 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  date: Date;
+}
+const { slug, title, date } = Astro.props;
+const formatted = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<a href={`/news/${slug}`} class="block py-6 border-b border-white/10 group">
+  <p class="font-label text-xs tracking-[2px] uppercase text-white/40">{formatted}</p>
+  <h3 class="font-headline text-xl md:text-2xl uppercase tracking-tight text-white mt-2 group-hover:text-cream transition-colors">
+    {title}
+  </h3>
+</a>

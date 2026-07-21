@@ -1,0 +1,97 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "news"
+    label: "News"
+    label_singular: "News Post"
+    folder: "src/content/news"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "tour_dates"
+    label: "Tour Dates"
+    label_singular: "Tour Date"
+    folder: "src/content/tour-dates"
+    create: true
+    delete: true
+    slug: "{{date}}-{{fields.title}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Event Title", name: "title", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Tickets URL", name: "ticketUrl", widget: "string", required: false }
+      - { label: "RSVP URL", name: "rsvpUrl", widget: "string", required: false }
+
+  - name: "press"
+    label: "Press Quotes"
+    label_singular: "Press Quote"
+    folder: "src/content/press"
+    create: true
+    delete: true
+    slug: "{{fields.source}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Quote", name: "quote", widget: "text" }
+      - { label: "Source", name: "source", widget: "string" }
+      - { label: "Album (optional, groups quotes)", name: "forAlbum", widget: "string", required: false }
+
+  - name: "bio"
+    label: "Biography"
+    files:
+      - name: "bio"
+        label: "Biography"
+        file: "src/content/bio.json"
+        fields:
+          - name: "bio"
+            label: "Biography"
+            widget: "object"
+            fields:
+              - { label: "Production & Co-Writing", name: "production", widget: "markdown" }
+              - { label: "Full Biography", name: "biog", widget: "markdown" }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "settings"
+        label: "Site Settings"
+        file: "src/content/settings.json"
+        fields:
+          - name: "settings"
+            label: "Settings"
+            widget: "object"
+            fields:
+              - label: "Social Links"
+                name: "social"
+                widget: "object"
+                fields:
+                  - { label: "Facebook", name: "facebook", widget: "string" }
+                  - { label: "YouTube", name: "youtube", widget: "string" }
+                  - { label: "Apple Music", name: "appleMusic", widget: "string" }
+                  - { label: "Spotify", name: "spotify", widget: "string" }
+                  - { label: "Instagram", name: "instagram", widget: "string" }
+              - { label: "Store URL", name: "storeUrl", widget: "string" }
+              - { label: "Substack URL", name: "substackUrl", widget: "string" }
+              - { label: "Hero Video URL (YouTube)", name: "heroVideoUrl", widget: "string" }
+              - { label: "Preorder URL", name: "preorderUrl", widget: "string" }
+              - { label: "Preorder Banner Text", name: "preorderText", widget: "text" }
+              - label: "Contact Blocks"
+                name: "contacts"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Name", name: "name", widget: "string", required: false }
+                  - { label: "Email", name: "email", widget: "string" }

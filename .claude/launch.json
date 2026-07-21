@@ -1,0 +1,14 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "theanchoress-dev",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "export PATH=\"$HOME/.local/tools/node-v22.14.0-darwin-arm64/bin:$PATH\"; cd /Users/seanadams/asweoncewere.com && npm run dev -- --port 4321"
+      ],
+      "port": 4321
+    }
+  ]
+}

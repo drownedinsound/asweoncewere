@@ -1,0 +1,22 @@
+{
+  "settings": {
+    "social": {
+      "facebook": "http://www.facebook.com/theanchoress",
+      "youtube": "https://www.youtube.com/channel/UCprifKdWotavrgXSy_qelEw",
+      "appleMusic": "https://geo.itunes.apple.com/gb/artist/the-anchoress/id836625742?mt=1&app=music",
+      "spotify": "https://open.spotify.com/artist/2Z4qmyxotDkAbZ0TpXyZyw",
+      "instagram": "http://instagram.com/theanchoressofficial"
+    },
+    "storeUrl": "https://iamtheanchoress.bandcamp.com/merch",
+    "substackUrl": "https://theanchoress.substack.com/",
+    "heroVideoUrl": "https://www.youtube.com/watch?v=8UlmjoEzSq4",
+    "preorderUrl": "https://found.ee/IHadAB",
+    "preorderText": "Preorder the new album \"As We Once Were\" on 2LP / Deluxe 2CD Mediabook / Ltd Edition Cassette / Gatefold CD",
+    "contacts": [
+      { "label": "UK Press", "name": "Polly Birkbeck", "email": "polly@completecontrolpr.co.uk" },
+      { "label": "UK Radio", "email": "kevin@kevinmccabepromotions.com" },
+      { "label": "UK/EU Live Bookings", "name": "Ed Stringfellow", "email": "lux@spidertouring.com" },
+      { "label": "General Enquiries", "email": "iamtheanchoress@gmail.com" }
+    ]
+  }
+}

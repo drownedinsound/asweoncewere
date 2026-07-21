@@ -1,0 +1,111 @@
+---
+import '../styles/global.css';
+import { getEntry } from 'astro:content';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'The Anchoress — Catherine Anne Davies' } = Astro.props;
+const settings = await getEntry('settings', 'settings');
+const social = settings!.data.social;
+const storeUrl = settings!.data.storeUrl;
+const substackUrl = settings!.data.substackUrl;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/news', label: 'News' },
+  { href: '/live', label: 'Live' },
+  { href: '/production', label: 'Production' },
+  { href: '/press', label: 'Press' },
+  { href: '/biog', label: 'Biog' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, 'https://asweoncewere.com').toString()} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={new URL(Astro.url.pathname, 'https://asweoncewere.com').toString()} />
+    <meta name="twitter:card" content="summary" />
+  </head>
+  <body>
+    <header class="border-b border-white/10">
+      <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col items-center gap-6">
+        <a href="/" class="font-headline text-2xl md:text-3xl tracking-[3px] uppercase text-cream">
+          The Anchoress
+        </a>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+          {navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="font-headline text-sm md:text-base tracking-[2px] uppercase text-white/60 hover:text-white transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href={storeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-headline text-sm md:text-base tracking-[2px] uppercase text-white/60 hover:text-white transition-colors"
+          >
+            Store
+          </a>
+          <a
+            href={substackUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-headline text-sm md:text-base tracking-[2px] uppercase text-white/60 hover:text-white transition-colors"
+          >
+            Newsletter
+          </a>
+          <a
+            href="/contact"
+            class="font-headline text-sm md:text-base tracking-[2px] uppercase text-white/60 hover:text-white transition-colors"
+          >
+            Contact
+          </a>
+        </nav>
+        <div class="flex items-center gap-5">
+          <a href={social.facebook} aria-label="Facebook" class="text-white/70 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg>
+          </a>
+          <a href={social.youtube} aria-label="YouTube" class="text-white/70 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>
+          </a>
+          <a href={social.appleMusic} aria-label="Apple Music" class="text-white/70 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor"><path d="M16.7 2H7.3A5.3 5.3 0 0 0 2 7.3v9.4A5.3 5.3 0 0 0 7.3 22h9.4a5.3 5.3 0 0 0 5.3-5.3V7.3A5.3 5.3 0 0 0 16.7 2Zm-1.4 5.3v6.9c0 1-.8 1.9-1.9 2.1-1.2.2-2.2-.6-2.2-1.8 0-1 .8-1.9 1.8-2l1.1-.2V8.6L10 9.3v7.4c0 1-.8 1.9-1.9 2.1-1.2.2-2.2-.6-2.2-1.8 0-1 .8-1.9 1.8-2l1.1-.2V7.5c0-.5.4-1 .9-1.1l5-1a1.1 1.1 0 0 1 1.3 1Z"/></svg>
+          </a>
+          <a href={social.spotify} aria-label="Spotify" class="text-white/70 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24Zm5.5 17.3a.75.75 0 0 1-1 .3c-2.8-1.7-6.3-2-10.5-1.1a.75.75 0 1 1-.3-1.5c4.5-1 8.4-.6 11.5 1.3.4.2.5.7.3 1Zm1.5-3.3a.9.9 0 0 1-1.2.3c-3.2-2-8-2.5-11.7-1.4a.9.9 0 1 1-.5-1.7c4.3-1.3 9.6-.7 13.2 1.5.4.3.6.9.2 1.3Zm.1-3.4C15.3 8.4 8.9 8.2 5.2 9.3a1.05 1.05 0 1 1-.6-2c4.3-1.3 11.3-1 15.4 1.5a1.05 1.05 0 0 1-1 1.8Z"/></svg>
+          </a>
+          <a href={social.instagram} aria-label="Instagram" class="text-white/70 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor"><path d="M12 2c2.7 0 3 0 4.1.06 1.1.05 1.8.22 2.5.47.7.27 1.2.6 1.8 1.1.5.5.9 1.1 1.1 1.8.25.7.42 1.4.47 2.5C22 8.94 22 9.27 22 12s0 3.06-.06 4.14c-.05 1.1-.22 1.8-.47 2.5-.27.7-.6 1.2-1.1 1.8-.5.5-1.1.9-1.8 1.1-.7.25-1.4.42-2.5.47C15.06 22 14.73 22 12 22s-3.06 0-4.14-.06c-1.1-.05-1.8-.22-2.5-.47-.7-.27-1.2-.6-1.8-1.1-.5-.5-.9-1.1-1.1-1.8-.25-.7-.42-1.4-.47-2.5C2 15.06 2 14.73 2 12s0-3.06.06-4.14c.05-1.1.22-1.8.47-2.5.27-.7.6-1.2 1.1-1.8.5-.5 1.1-.9 1.8-1.1.7-.25 1.4-.42 2.5-.47C8.94 2 9.27 2 12 2Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.5-8.4a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="border-t border-white/10 mt-24">
+      <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col items-center gap-2 text-center">
+        <p class="font-label text-xs tracking-[2px] uppercase text-white/40">
+          &copy; {new Date().getFullYear()} The Anchoress
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

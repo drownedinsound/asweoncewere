@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+import { paragraphs } from '../lib/text';
+
+const bio = (await getEntry('bio', 'bio'))!.data;
+const paras = paragraphs(bio.biog);
+---
+
+<Layout title="Biog — The Anchoress">
+  <section class="max-w-3xl mx-auto px-6 py-16">
+    <h1 class="font-headline text-3xl tracking-[2px] uppercase text-cream mb-10">The Anchoress</h1>
+    <div class="font-body text-white/90 leading-relaxed space-y-5 italic [&_strong]:not-italic">
+      {paras.map((p) => <p set:html={p} />)}
+    </div>
+  </section>
+</Layout>
